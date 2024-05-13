@@ -8,11 +8,23 @@ public class TextFlicker : MonoBehaviour
     private TMP_Text textMeshPro;
     private string[] texts = { "Specimen", "by Etheko.", "Specimen", "Will you?", "Could you?", "Specimen", "Am I alone?"}; // Array of strings
 
+    private Coroutine changeTextCoroutine; // Coroutine to change the text
+
     // Start is called before the first frame update
     void Start()
     {
         textMeshPro = GetComponent<TMP_Text>();
-        StartCoroutine(ChangeText()); // Start the coroutine
+        changeTextCoroutine = StartCoroutine(ChangeText());
+    }
+
+    void OnDisable()
+    {
+        StopCoroutine(changeTextCoroutine); // Stop the coroutine when the object is disabled
+    }
+
+    void OnEnable()
+    {
+        changeTextCoroutine = StartCoroutine(ChangeText()); // Start the coroutine when the object is enabled
     }
 
     // Coroutine to change the text every 5 seconds
