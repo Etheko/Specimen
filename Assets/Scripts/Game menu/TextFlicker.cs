@@ -28,7 +28,7 @@ public class TextFlicker : MonoBehaviour
     }
 
     // Coroutine to change the text every 5 seconds
-    IEnumerator ChangeText()
+    public IEnumerator ChangeText()
     {
         while (true)
         {
