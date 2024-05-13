@@ -14,6 +14,7 @@ public class AudioManager : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
         audioSource.Play();
+        DontDestroyOnLoad(gameObject);
     }
     
     // fade out the audio when the scene is changed
