@@ -1,10 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
     public float speed;
+
+    private float runningSpeed;
+
+    private float originalSpeed;
 
     private bool isMoving;
 
@@ -28,6 +33,16 @@ public class PlayerController : MonoBehaviour
             else if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
                 input.x = -1;
 
+            // if shift is pressed, double the speed
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                speed = runningSpeed;
+            }
+            else
+            {
+                speed = originalSpeed;
+            }
+
             if (input != Vector2.zero)
             {
                 var targetPos = transform.position;
@@ -38,6 +53,13 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+
+    private void Start()
+    {
+        runningSpeed = speed * 2;
+        originalSpeed = speed;
+    }
+
     private void Update()
     {
         GetInput();
