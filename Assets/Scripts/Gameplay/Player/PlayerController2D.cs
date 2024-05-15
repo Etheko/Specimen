@@ -15,6 +15,13 @@ public class PlayerController : MonoBehaviour
 
     private Vector2 input;
 
+    private Animator animator;
+
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
+
 
     private void GetInput()
     {
@@ -23,15 +30,22 @@ public class PlayerController : MonoBehaviour
             input = Vector2.zero;
 
             if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
+            {
                 input.y = 1;
+            }
             else if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
+            {
                 input.y = -1;
+            }
 
             if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
-                // change sprite image
+            {
                 input.x = 1;
+            }
             else if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
+            {
                 input.x = -1;
+            }
 
             // if shift is pressed, double the speed
             if (Input.GetKey(KeyCode.LeftShift))
@@ -45,6 +59,8 @@ public class PlayerController : MonoBehaviour
 
             if (input != Vector2.zero)
             {
+                animator.SetFloat("moveX", input.x);
+                animator.SetFloat("moveY", input.y);
                 var targetPos = transform.position;
                 targetPos.x += input.x;
                 targetPos.y += input.y;
@@ -52,6 +68,8 @@ public class PlayerController : MonoBehaviour
                 StartCoroutine(Move(targetPos));
             }
         }
+
+        animator.SetBool("isWalking", isMoving);
     }
 
     private void Start()

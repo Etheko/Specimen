@@ -1,0 +1,567 @@
+fileFormatVersion: 2
+guid: 05f4026d52110074c861a5ad034e37a6
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Neru_0
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 987
+        width: 98
+        height: 185
+      alignment: 9
+      pivot: {x: 0.5607668, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ccf4b4abd40d6442a0109a05b236c20
+      internalID: -567079572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neru_1
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 987
+        width: 98
+        height: 185
+      alignment: 9
+      pivot: {x: 0.45, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e76f5c9c10c3c5a41873aea688114b39
+      internalID: 1169542522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neru_2
+      rect:
+        serializedVersion: 2
+        x: 592
+        y: 988
+        width: 87
+        height: 186
+      alignment: 9
+      pivot: {x: 0.3545434, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dad277f244f9d6c4abf7a38c8cd32223
+      internalID: -1931950785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neru_3
+      rect:
+        serializedVersion: 2
+        x: 846
+        y: 988
+        width: 87
+        height: 186
+      alignment: 9
+      pivot: {x: 0.6454559, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e76312de908467d4abeef8c6699ff58e
+      internalID: 845498835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neru_4
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 747
+        width: 95
+        height: 185
+      alignment: 9
+      pivot: {x: 0.5705215, y: 0.49999967}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b91b645816b9e5478d974c082e6e767
+      internalID: -132429645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neru_5
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 747
+        width: 92
+        height: 185
+      alignment: 9
+      pivot: {x: 0.5809121, y: 0.4999997}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 162c30880d13eea4e908da776dbda79c
+      internalID: -149340019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neru_6
+      rect:
+        serializedVersion: 2
+        x: 580
+        y: 757
+        width: 97
+        height: 175
+      alignment: 9
+      pivot: {x: 0.5690666, y: 0.4659699}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d1831b1252c4ab4794680e13684dfec
+      internalID: -1745105133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neru_7
+      rect:
+        serializedVersion: 2
+        x: 834
+        y: 747
+        width: 93
+        height: 185
+      alignment: 9
+      pivot: {x: 0.5880462, y: 0.4999997}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6266fe217eba60e4ba38b8096eb0ecec
+      internalID: -493381856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neru_8
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 509
+        width: 87
+        height: 185
+      alignment: 9
+      pivot: {x: 0.3630999, y: 0.50402373}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1c158fb7ee863941b55e71914531663
+      internalID: 1359918996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neru_9
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 515
+        width: 95
+        height: 179
+      alignment: 9
+      pivot: {x: 0.4294784, y: 0.49999967}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 173b5daa998e11848855e7fc789f23ea
+      internalID: -1583244373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neru_10
+      rect:
+        serializedVersion: 2
+        x: 592
+        y: 511
+        width: 87
+        height: 183
+      alignment: 9
+      pivot: {x: 0.3802125, y: 0.49999967}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0d07b5d28768bb4ebabe8d1082c89ea
+      internalID: 1018308183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neru_11
+      rect:
+        serializedVersion: 2
+        x: 846
+        y: 514
+        width: 94
+        height: 180
+      alignment: 9
+      pivot: {x: 0.4366468, y: 0.49999967}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 927de9555f63067468651be2e77f816f
+      internalID: -222524592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neru_12
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 267
+        width: 95
+        height: 185
+      alignment: 9
+      pivot: {x: 0.4216428, y: 0.5160948}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a69ea50675417cb45908acff9d63c36d
+      internalID: -684250227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neru_13
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 267
+        width: 92
+        height: 185
+      alignment: 9
+      pivot: {x: 0.402905, y: 0.5241424}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 997ed34a444d33b4e90b15c1e0b47475
+      internalID: 1197129081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neru_14
+      rect:
+        serializedVersion: 2
+        x: 595
+        y: 280
+        width: 95
+        height: 172
+      alignment: 9
+      pivot: {x: 0.429478, y: 0.495672}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: adc4e1bb6ac3b3748aece4092f28b6e6
+      internalID: 814309102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neru_15
+      rect:
+        serializedVersion: 2
+        x: 852
+        y: 267
+        width: 92
+        height: 185
+      alignment: 9
+      pivot: {x: 0.4109961, y: 0.52011865}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78a0e6379c25356438a8c3d6cf9f85cd
+      internalID: 1564439465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neru_16
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 29
+        width: 87
+        height: 185
+      alignment: 9
+      pivot: {x: 0.6197873, y: 0.5040236}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae4c5a873bea99c47869e5ef58a5fbfe
+      internalID: 992738775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neru_17
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 35
+        width: 95
+        height: 179
+      alignment: 9
+      pivot: {x: 0.5705213, y: 0.4999999}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7837b17b4a9e6247b58783b683b36c3
+      internalID: -133044230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neru_18
+      rect:
+        serializedVersion: 2
+        x: 592
+        y: 31
+        width: 87
+        height: 183
+      alignment: 9
+      pivot: {x: 0.6454559, y: 0.49999988}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64d617a01dcdb824685da38ae83aee15
+      internalID: 907706591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neru_19
+      rect:
+        serializedVersion: 2
+        x: 846
+        y: 34
+        width: 94
+        height: 180
+      alignment: 9
+      pivot: {x: 0.6108665, y: 0.4999999}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb25232a3fa8a9c4ab9b7aa7030cc300
+      internalID: -566681121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: f8090555a41337544a1c052e76afe35c
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Neru_0: -567079572
+      Neru_1: 1169542522
+      Neru_10: 1018308183
+      Neru_11: -222524592
+      Neru_12: -684250227
+      Neru_13: 1197129081
+      Neru_14: 814309102
+      Neru_15: 1564439465
+      Neru_16: 992738775
+      Neru_17: -133044230
+      Neru_18: 907706591
+      Neru_19: -566681121
+      Neru_2: -1931950785
+      Neru_3: 845498835
+      Neru_4: -132429645
+      Neru_5: -149340019
+      Neru_6: -1745105133
+      Neru_7: -493381856
+      Neru_8: 1359918996
+      Neru_9: -1583244373
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
