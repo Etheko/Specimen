@@ -2,14 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DevESC : MonoBehaviour
+public class DevESC : Wizard
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-
-
-    }
 
     // Update is called once per frame
     void Update()
@@ -19,5 +13,26 @@ public class DevESC : MonoBehaviour
         {
             UnityEngine.SceneManagement.SceneManager.LoadScene(1);
         }
+
+
+        // if ENTER is pressed, create a text file
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            StartCoroutine(CreateTextFileCoroutine());
+        }
     }
+
+    IEnumerator ShowDialogCoroutine()
+    {
+        ShowDialog(":)", "You know what this means... :3");
+        yield return null;
+    }
+
+    IEnumerator CreateTextFileCoroutine()
+    {
+        CreateTextFile("Just a file.txt", "???????????????????????????????");
+        ShowDialog("???", "Check your desktop!");
+        yield return null;
+    }
+
 }
