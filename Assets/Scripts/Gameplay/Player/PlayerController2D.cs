@@ -27,6 +27,22 @@ public class PlayerController : MonoBehaviour
 
     private int[] collisions = new int[4]; // 0 = up, 1 = down, 2 = left, 3 = right
 
+    public float upXOffset = 0;
+
+    public float upYOffset = 0.5f;
+
+    public float downXOffset = 0;
+
+    public float downYOffset = -2;
+
+    public float leftXOffset = -1;
+
+    public float leftYOffset = -1.8f;
+
+    public float rightXOffset = 1;
+
+    public float rightYOffset = -1.5f;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -155,10 +171,14 @@ public class PlayerController : MonoBehaviour
 
     private void CheckCollisions() // Check if any of the adjacent cells have a collisionbox (the offset is due to the pivot point of the player)
     {
-        collisions[0] = Physics2D.OverlapBox(new Vector2(transform.position.x, transform.position.y - 0.5f), new Vector2(0, 0), 0) ? 1 : 0;
-        collisions[1] = Physics2D.OverlapBox(new Vector2(transform.position.x, transform.position.y - 2), new Vector2(0, 0), 0) ? 1 : 0;
-        collisions[2] = Physics2D.OverlapBox(new Vector2(transform.position.x - 1, transform.position.y - 1.5f), new Vector2(0, 0), 0) ? 1 : 0;
-        collisions[3] = Physics2D.OverlapBox(new Vector2(transform.position.x + 1, transform.position.y - 1.5f), new Vector2(0, 0), 0) ? 1 : 0;
+        collisions[0] = Physics2D.OverlapBox(new Vector2(transform.position.x + upXOffset, transform.position.y + upYOffset), new Vector2(0, 0), 0) ? 1 : 0;
+
+        collisions[1] = Physics2D.OverlapBox(new Vector2(transform.position.x + downXOffset, transform.position.y + downYOffset), new Vector2(0, 0), 0) ? 1 : 0;
+
+        collisions[2] = Physics2D.OverlapBox(new Vector2(transform.position.x + leftXOffset, transform.position.y + leftYOffset), new Vector2(0, 0), 0) ? 1 : 0;
+
+        collisions[3] = Physics2D.OverlapBox(new Vector2(transform.position.x + rightXOffset, transform.position.y + rightYOffset), new Vector2(0, 0), 0) ? 1 : 0;
+
 
     }
 }
