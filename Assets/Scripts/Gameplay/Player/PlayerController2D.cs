@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
 {
     public float speed;
 
+    public LayerMask solidObjectsLayer;
+
     private float runningSpeed;
 
     private float originalSpeed;
@@ -16,6 +18,8 @@ public class PlayerController : MonoBehaviour
     private Vector2 input;
 
     private Animator animator;
+
+    public Rigidbody2D rb;
 
     private void Awake()
     {
@@ -29,23 +33,9 @@ public class PlayerController : MonoBehaviour
         {
             input = Vector2.zero;
 
-            if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
-            {
-                input.y = 1;
-            }
-            else if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
-            {
-                input.y = -1;
-            }
-
-            if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
-            {
-                input.x = 1;
-            }
-            else if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
-            {
-                input.x = -1;
-            }
+            // Get the input from the player
+            input.x = Input.GetAxisRaw("Horizontal");
+            input.y = Input.GetAxisRaw("Vertical");
 
             // if shift is pressed, double the speed
             if (Input.GetKey(KeyCode.LeftShift))
@@ -93,5 +83,14 @@ public class PlayerController : MonoBehaviour
         }
         transform.position = targetPos;
         isMoving = false;
+    }
+
+    private bool IsWalkable(Vector3 targetPos)
+    {
+        if (Physics2D.OverlapCircle(targetPos, 0.2f, solidObjectsLayer) != null)
+        {
+            return false;
+        }
+        return true;
     }
 }
