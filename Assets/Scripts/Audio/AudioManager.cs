@@ -12,7 +12,12 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
+
+        if(audioSource == null)
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
+
         audioSource.Play();
         DontDestroyOnLoad(gameObject);
     }
@@ -32,6 +37,8 @@ public class AudioManager : MonoBehaviour
             audioSource.volume -= startVolume * Time.deltaTime / fadeTime;
             yield return null;
         }
+
+        Destroy(gameObject);
     }
 
 

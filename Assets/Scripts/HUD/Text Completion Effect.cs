@@ -15,6 +15,10 @@ public class TextCompletionEffect : MonoBehaviour
     void Start()
     {
         textMeshPro = GetComponent<TMP_Text>();
+
+        if (inputText == null)
+            inputText = textMeshPro.text; // Set the input text to the text of the textMeshPro component (if it is not set in the inspector)
+
         animateTextCoroutine = StartCoroutine(AnimateText());
     }
 

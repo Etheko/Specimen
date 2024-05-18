@@ -14416,9 +14416,33 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2666040189799456720}
     - target: {fileID: 2852084058256832175, guid: 367a145a48f9b594eb31f0c67491027b, type: 3}
+      propertyPath: upYOffset
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2852084058256832175, guid: 367a145a48f9b594eb31f0c67491027b, type: 3}
       propertyPath: boxCollider
       value: 
       objectReference: {fileID: 2666040189799456719}
+    - target: {fileID: 2852084058256832175, guid: 367a145a48f9b594eb31f0c67491027b, type: 3}
+      propertyPath: downYOffset
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2852084058256832175, guid: 367a145a48f9b594eb31f0c67491027b, type: 3}
+      propertyPath: leftXOffset
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2852084058256832175, guid: 367a145a48f9b594eb31f0c67491027b, type: 3}
+      propertyPath: leftYOffset
+      value: -1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2852084058256832175, guid: 367a145a48f9b594eb31f0c67491027b, type: 3}
+      propertyPath: rightXOffset
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2852084058256832175, guid: 367a145a48f9b594eb31f0c67491027b, type: 3}
+      propertyPath: rightYOffset
+      value: -1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2852084058256832175, guid: 367a145a48f9b594eb31f0c67491027b, type: 3}
       propertyPath: foreground.m_Bits
       value: 128

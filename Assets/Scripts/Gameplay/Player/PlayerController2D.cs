@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
 
     public float upXOffset = 0;
 
-    public float upYOffset = 0.5f;
+    public float upYOffset = -0.5f;
 
     public float downXOffset = 0;
 
@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
 
     public float leftXOffset = -1;
 
-    public float leftYOffset = -1.8f;
+    public float leftYOffset = -1.5f;
 
     public float rightXOffset = 1;
 
@@ -178,7 +178,6 @@ public class PlayerController : MonoBehaviour
         collisions[2] = Physics2D.OverlapBox(new Vector2(transform.position.x + leftXOffset, transform.position.y + leftYOffset), new Vector2(0, 0), 0) ? 1 : 0;
 
         collisions[3] = Physics2D.OverlapBox(new Vector2(transform.position.x + rightXOffset, transform.position.y + rightYOffset), new Vector2(0, 0), 0) ? 1 : 0;
-
 
     }
 }
