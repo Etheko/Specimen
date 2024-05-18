@@ -1,7 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class TextCompletionEffectDialogs : MonoBehaviour
@@ -26,7 +24,8 @@ public class TextCompletionEffectDialogs : MonoBehaviour
         if (inputText == null)
         {
             inputText = textMeshPro.text; // Set the input text to the text of the textMeshPro component (if it is not set in the inspector)
-        } else if (dialogues.Length > 0)
+        }
+        else if (dialogues.Length > 0)
         {
             inputText = dialogues[0];
         }

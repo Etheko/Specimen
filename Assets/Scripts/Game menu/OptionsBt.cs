@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,13 +14,13 @@ public class OptionsBt : MonoBehaviour
     {
         button = GetComponent<Button>();
         button.onClick.AddListener(Options);
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void Options()

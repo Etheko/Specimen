@@ -1,25 +1,32 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class TextCompletionEffect : MonoBehaviour
 {
     private TMP_Text textMeshPro;
-    public string inputText; // Input text
+    private string inputText; // Input text
 
     private Coroutine animateTextCoroutine; // Coroutine to animate the text
 
     // Start is called before the first frame update
     void Start()
     {
-        textMeshPro = GetComponent<TMP_Text>();
+        if (GetComponent<TranslatableText>() != null)
+        {
+            inputText = GetComponent<TranslatableText>().getTextToWrite(); // Set the input text to the text of the TranslatableText component
+            animateTextCoroutine = StartCoroutine(AnimateText());
 
-        if (inputText == null)
+        }
+        else
+        {
+
+            textMeshPro = GetComponent<TMP_Text>();
             inputText = textMeshPro.text; // Set the input text to the text of the textMeshPro component (if it is not set in the inspector)
+            animateTextCoroutine = StartCoroutine(AnimateText());
 
-        animateTextCoroutine = StartCoroutine(AnimateText());
+        }
+
     }
 
     void OnDisable()

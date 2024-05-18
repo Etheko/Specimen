@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -28,7 +26,7 @@ public class NewGameBt1 : MonoBehaviour
             {
                 audioSource = auxiliaryAudioSourceObject.GetComponent<AudioSource>();
             }
-        
+
         }
 
         button = GetComponent<Button>();
@@ -65,6 +63,6 @@ public class NewGameBt1 : MonoBehaviour
         // pause the music and set it to the beginning
         audioSource.Pause();
         audioSource.time = 0;
-    
+
     }
 }

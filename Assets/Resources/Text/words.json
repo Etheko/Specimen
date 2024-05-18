@@ -1,0 +1,41 @@
+{
+  "textStrings": [
+    {
+      "key": "newGame",
+      "en": "New entity",
+      "es": "Nueva entidad"
+
+    },
+    {
+      "key": "loadGame",
+      "en": "Continue",
+      "es": "Continuar"
+
+    },
+    {
+      "key": "settings",
+      "en": "Options",
+      "es": "Opciones"
+    },
+    {
+      "key": "exitGame",
+      "en": "Leave",
+      "es": "Abandonar"
+    },
+    {
+      "key": "changeLanguage",
+      "en": "Language",
+      "es": "Idioma"
+    },
+    {
+      "key": "audioSettings",
+      "en": "Audio settings",
+      "es": "Ajustes de sonido"
+    },
+    {
+      "key": "back",
+      "en": "< Back",
+      "es": "< Volver"
+    }
+  ]
+}

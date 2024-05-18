@@ -1,12 +1,11 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
 public class TextFlicker : MonoBehaviour
 {
     private TMP_Text textMeshPro;
-    private string[] texts = { "Specimen", "by Etheko.", "Specimen", "Will you?", "Could you?", "Specimen", "Am I alone?"}; // Array of strings
+    private string[] texts = { "Specimen", "by Etheko.", "Specimen", "Will you?", "Could you?", "Specimen", "Am I alone?" }; // Array of strings
 
     private Coroutine changeTextCoroutine; // Coroutine to change the text
 

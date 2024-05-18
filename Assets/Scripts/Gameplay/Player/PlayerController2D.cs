@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -85,7 +83,7 @@ public class PlayerController : MonoBehaviour
                 startPos = transform.position;
                 animator.SetFloat("moveX", input.x);
                 animator.SetFloat("moveY", input.y);
-        
+
                 // if any of the adjacent cells have a collisionbox, stop the player from moving to that direction
                 if (input.x == 1 && collisions[3] == 1)
                 {
@@ -178,6 +176,8 @@ public class PlayerController : MonoBehaviour
         collisions[2] = Physics2D.OverlapBox(new Vector2(transform.position.x + leftXOffset, transform.position.y + leftYOffset), new Vector2(0, 0), 0) ? 1 : 0;
 
         collisions[3] = Physics2D.OverlapBox(new Vector2(transform.position.x + rightXOffset, transform.position.y + rightYOffset), new Vector2(0, 0), 0) ? 1 : 0;
+
+        Debug.Log("UP: " + collisions[0] + " DOWN: " + collisions[1] + " LEFT: " + collisions[2] + " RIGHT: " + collisions[3]);
 
     }
 }

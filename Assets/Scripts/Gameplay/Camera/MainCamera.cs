@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MainCamera : MonoBehaviour
@@ -7,7 +5,7 @@ public class MainCamera : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     public Transform player;
@@ -27,6 +25,6 @@ public class MainCamera : MonoBehaviour
     void Update()
     {
         FollowPlayer();
-        
+
     }
 }
