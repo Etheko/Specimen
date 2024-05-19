@@ -6,14 +6,19 @@ using UnityEngine;
 public class TranslatableText : MonoBehaviour
 {
 
-    public TMP_Text textMeshPro;
+    public TextMeshProUGUI textMeshPro;
 
     private string textToWrite;
 
     // Start is called before the first frame update
     void Start()
     {
-        textMeshPro = GetComponent<TMP_Text>();
+        initialize();
+    }
+
+    private void initialize()
+    {
+        textMeshPro = GetComponent<TextMeshProUGUI>();
 
         // get the script "LanguageManager" from the actual object
         LanguageManager languageManagerScript = GetComponent<LanguageManager>();
@@ -26,6 +31,10 @@ public class TranslatableText : MonoBehaviour
 
     public string getTextToWrite()
     {
+        if (textToWrite == null)
+        {
+            initialize();
+        }
         return textToWrite;
     }
     

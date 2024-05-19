@@ -31,11 +31,25 @@ public class TextCompletionEffect : MonoBehaviour
 
     void OnDisable()
     {
-        StopCoroutine(animateTextCoroutine); // Stop the coroutine when the object is disabled
+        //check if the coroutine is running
+        if (animateTextCoroutine != null)
+            StopCoroutine(animateTextCoroutine); // Stop the coroutine when the object is disabled
     }
 
     void OnEnable()
     {
+        if (textMeshPro == null)
+            textMeshPro = GetComponent<TextMeshProUGUI>();
+
+        if (inputText == null)
+        {
+            inputText = textMeshPro.text;
+            
+        }
+
+        if(GetComponent<TranslatableText>() != null)
+            inputText = GetComponent<TranslatableText>().getTextToWrite();
+
         animateTextCoroutine = StartCoroutine(AnimateText()); // Start the coroutine when the object is enabled
     }
 

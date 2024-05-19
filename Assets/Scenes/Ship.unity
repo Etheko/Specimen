@@ -385,7 +385,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4e2cfbef37a8e64abcddb9130377522, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sortingOrderBase: 5003
+  sortingOrderBase: 5004
   offset: 0
   runOnlyOnce: 0
 --- !u!4 &749419437 stripped
@@ -439,7 +439,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4e2cfbef37a8e64abcddb9130377522, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sortingOrderBase: 5001
+  sortingOrderBase: 5002
   offset: 0
   runOnlyOnce: 0
 --- !u!483693784 &1811487970
@@ -482,7 +482,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 193212045
   m_SortingLayer: 2
-  m_SortingOrder: 5001
+  m_SortingOrder: 5002
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -820,7 +820,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4e2cfbef37a8e64abcddb9130377522, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sortingOrderBase: 5000
+  sortingOrderBase: 5001
   offset: 0
   runOnlyOnce: 0
 --- !u!1 &1892764426
@@ -1080,7 +1080,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4e2cfbef37a8e64abcddb9130377522, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sortingOrderBase: 5000
+  sortingOrderBase: 5001
   offset: 0
   runOnlyOnce: 0
 --- !u!1 &1900019575
@@ -15333,6 +15333,9 @@ PrefabInstance:
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 7975828830379419632, guid: 46e3c6499a0fc4d41b3648b82643991a, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 1811487968}
+    - targetCorrespondingSourceObject: {fileID: 7975828830379419632, guid: 46e3c6499a0fc4d41b3648b82643991a, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 1892764427}
     - targetCorrespondingSourceObject: {fileID: 7975828830379419632, guid: 46e3c6499a0fc4d41b3648b82643991a, type: 3}
       insertIndex: -1
@@ -15340,9 +15343,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7975828830379419632, guid: 46e3c6499a0fc4d41b3648b82643991a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1863638585}
-    - targetCorrespondingSourceObject: {fileID: 7975828830379419632, guid: 46e3c6499a0fc4d41b3648b82643991a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1811487968}
     - targetCorrespondingSourceObject: {fileID: 7975828830379419632, guid: 46e3c6499a0fc4d41b3648b82643991a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1900019576}
@@ -15676,7 +15676,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4e2cfbef37a8e64abcddb9130377522, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sortingOrderBase: 5003
+  sortingOrderBase: 5004
   offset: 0
   runOnlyOnce: 0
 --- !u!1839735485 &2666040189799456718
@@ -15794,6 +15794,6 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 2528766252238309580}
-  - {fileID: 332162132551798861}
   - {fileID: 2666040189799456710}
+  - {fileID: 332162132551798861}
   - {fileID: 1977249274546810959}
