@@ -148,14 +148,18 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator Move(Vector3 targetPos)
     {
+        Debug.Log("Target pos: " + targetPos);
         isMoving = true;
-        while ((targetPos - transform.position).sqrMagnitude > Mathf.Epsilon && !hasCollided)
+        while ((targetPos - transform.position).sqrMagnitude > Mathf.Epsilon)
         {
             transform.position = Vector3.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
             yield return null;
         }
+
         var xDiff = startPos.x - targetPos.x;
         var yDiff = startPos.y - targetPos.y;
+        Debug.Log("Final pos: " + transform.position);
+        Debug.Log("X diff: " + xDiff + " Y diff: " + yDiff);
         transform.position = targetPos;
         isMoving = false;
         CheckCollisions();
