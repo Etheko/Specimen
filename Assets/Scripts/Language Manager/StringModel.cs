@@ -29,6 +29,5 @@ public class LanguageListItemModel
 public class LanguageSettingsModel
 {
     public string defaultLanguage;
-    public string selectedLanguage;
     public List<LanguageListItemModel> languages;
 }

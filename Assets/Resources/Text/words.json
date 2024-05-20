@@ -36,6 +36,16 @@
       "key": "back",
       "en": "< Back",
       "es": "< Volver"
+    },
+    {
+      "key": "en",
+      "en": "English",
+      "es": "Inglés"
+    },
+    {
+      "key": "es",
+      "en": "Spanish",
+      "es": "Español"
     }
   ]
 }

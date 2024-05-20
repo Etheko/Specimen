@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LanguageManager : MonoBehaviour
 {
@@ -24,9 +25,14 @@ public class LanguageManager : MonoBehaviour
 
     public void loadTexts()
     {
-        // load the language from the JSON file
+
         languageSettings = JsonUtility.FromJson<LanguageSettingsModel>(configJSONFile.text);
-        language = languageSettings.selectedLanguage;
+
+        if (!PlayerPrefs.HasKey("selectedLanguage"))
+        {
+            PlayerPrefs.SetString("selectedLanguage", languageSettings.defaultLanguage);
+        }
+        language = PlayerPrefs.GetString("selectedLanguage");
 
         // load all the texts from the JSON file, depending on the language
         var languageDictionary = JsonUtility.FromJson<LanguageDictionary>(stringsJSONFile.text);
@@ -47,9 +53,7 @@ public class LanguageManager : MonoBehaviour
     public void changeLanguage(string newLanguage)
     {
         language = newLanguage;
-        languageSettings.selectedLanguage = newLanguage;
-        string newJson = JsonUtility.ToJson(languageSettings);
-        File.WriteAllText(Application.dataPath + "/Resources/Text/langSettings.json", newJson);
+        PlayerPrefs.SetString("selectedLanguage", language);
         loadTexts();
     }
 
@@ -60,6 +64,11 @@ public class LanguageManager : MonoBehaviour
 
     public string getText(string key)
     {
+        if(texts == null)
+        {
+            loadTexts();
+        }
+
         if (texts.ContainsKey(key))
         {
             return texts[key];

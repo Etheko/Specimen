@@ -1,1 +1,13 @@
-{"defaultLanguage":"en","selectedLanguage":"es","languages":[{"code":"en","name":"English"},{"code":"es","name":"Spanish"}]}
+{
+  "defaultLanguage": "en",
+  "languages": [
+    {
+      "code": "en",
+      "name": "English"
+    },
+    {
+      "code": "es",
+      "name": "Spanish"
+    }
+  ]
+}

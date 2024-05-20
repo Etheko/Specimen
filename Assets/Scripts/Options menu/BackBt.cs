@@ -5,8 +5,8 @@ public class BackBt : MonoBehaviour
 {
 
     private Button button;
-    public GameObject MainMenuWindow;
-    public GameObject OptionsMenuWindow;
+    public GameObject previousWindow;
+    public GameObject currentWindow;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +24,7 @@ public class BackBt : MonoBehaviour
     void Back()
     {
         //disable OptionsMenuWindow parent object and enable MainMenuWindow
-        OptionsMenuWindow.SetActive(false);
-        MainMenuWindow.SetActive(true);
+        currentWindow.SetActive(false);
+        previousWindow.SetActive(true);
     }
 }
