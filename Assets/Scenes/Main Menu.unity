@@ -385,6 +385,10 @@ PrefabInstance:
       value: Menu Aux Audio Source
       objectReference: {fileID: 0}
     - target: {fileID: 427363276910302642, guid: 811cca7a44e11364d91a6b5c3931d570, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 427363276910302642, guid: 811cca7a44e11364d91a6b5c3931d570, type: 3}
       propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}

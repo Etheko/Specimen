@@ -160,7 +160,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 951
 --- !u!114 &210412270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -768,7 +768,9 @@ GameObject:
   - component: {fileID: 1676295672}
   - component: {fileID: 1676295674}
   - component: {fileID: 1676295673}
+  - component: {fileID: 1676295676}
   - component: {fileID: 1676295675}
+  - component: {fileID: 1676295677}
   m_Layer: 5
   m_Name: Narration Text
   m_TagString: Untagged
@@ -793,7 +795,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.18649946}
   m_AnchorMax: {x: 1, y: 0.85700005}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -283.3181, y: 0.0000076294}
+  m_SizeDelta: {x: 0, y: -9.0013}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1676295673
 MonoBehaviour:
@@ -815,8 +817,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'test, test, test, test, test, test, test, test, test, test, test, test,
-    test, test, test, test, test, test, test, test, test, test, test, '
+  m_text: dOpening
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b52322a1b00899f4684522fad4440167, type: 2}
   m_sharedMaterial: {fileID: -9108125577137130833, guid: b52322a1b00899f4684522fad4440167, type: 2}
@@ -843,8 +844,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 22
-  m_fontSizeBase: 22
+  m_fontSize: 18
+  m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -855,7 +856,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: 25
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -905,10 +906,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 496f088cb5d838b4f90b543359fbe4d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputText: 'test, test, test, test, test, test, test, test, test, test, test, test,
-    test, test, test, test, test, test, test, test, test, test, test, '
+  inputText: 
   continueIcon: {fileID: 311033455}
   dialogues: []
+--- !u!114 &1676295676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1676295671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d024ca9a3b283774e9cd99dbccdca83f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1676295677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1676295671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86710e43de46f6f4bac7c8e50813a599, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AspectMode: 2
+  m_AspectRatio: 3.4624708
 --- !u!1 &1720245289
 GameObject:
   m_ObjectHideFlags: 0

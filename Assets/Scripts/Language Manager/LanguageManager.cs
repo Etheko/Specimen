@@ -78,4 +78,26 @@ public class LanguageManager : MonoBehaviour
             return null;
         }
     }
+
+    public string[] getDialogs(string key)
+    {
+        if (texts == null)
+        {
+            loadTexts();
+        }
+
+        // run through all of the keys in the dictionary and grab the ones that start by the key
+        List<string> dialogues = new List<string>();
+        foreach (var item in texts)
+        {
+            string itemKey = item.Key;
+
+            if (itemKey.StartsWith(key))
+            {
+                dialogues.Add(item.Value);
+            }
+        }
+
+        return dialogues.ToArray();
+    }
 }

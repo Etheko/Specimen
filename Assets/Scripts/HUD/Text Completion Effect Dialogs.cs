@@ -16,17 +16,26 @@ public class TextCompletionEffectDialogs : MonoBehaviour
 
     private int currentDialogue = 0;
 
+    private LanguageManager languageManager;
+
     // Start is called before the first frame update
     void Start()
     {
         textMeshPro = GetComponent<TMP_Text>();
 
-        if (inputText == null)
+        if (inputText == "" || inputText == null)
         {
             inputText = textMeshPro.text; // Set the input text to the text of the textMeshPro component (if it is not set in the inspector)
         }
-        else if (dialogues.Length > 0)
+        
+        if (dialogues.Length > 0)
         {
+            inputText = dialogues[0];
+        }
+        else
+        {
+            languageManager = GetComponent<LanguageManager>();
+            dialogues = languageManager.getDialogs(inputText);
             inputText = dialogues[0];
         }
 
@@ -39,9 +48,9 @@ public class TextCompletionEffectDialogs : MonoBehaviour
         {
             inputText = dialogues[currentDialogue];
             animateTextCoroutine = StartCoroutine(AnimateText());
-            return true;
+            return true; // Return true if there are more dialogues
         }
-        return false;
+        return false; // Return false if there are no more dialogues
     }
 
     void OnDisable()

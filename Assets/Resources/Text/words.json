@@ -46,6 +46,46 @@
       "key": "es",
       "en": "Spanish",
       "es": "Español"
+    },
+    {
+      "key": "dOpening01",
+      "en": "[Entry-1]: The preparation and execution of the initial phase of the Orbital-1 mission has been successful. The spacecraft was launched into space and the launch was completed correctly. I am currently out of Thera's gravitational field and the turbulence has ceased. I must admit that I got a little nervous...",
+      "es": "[Entrada-1]: La preparación y ejecución de la fase inicial de la misión Orbital-1 ha sido satisfactoria. Se procedió al lanzamiento de la nave al espacio y se completó dicho lanzamiento correctamente. Actualmente me encuentro fuera del campo gravitatorio de Thera y las turbulencias han cesado. He de reconocer que me he puesto algo nervioso..."
+    },
+    {
+      "key": "dOpening02",
+      "en": "[Entry-2]: The fun begins. Now I must undergo a sophisticated hibernation process that will allow me to reach planet O-1 in the neighboring galaxy, Urion, in the shortest time possible. Well, that will really be just my perception, since in the rest of the universe exactly 5 years will have passed until I wake up, if everything goes well... ... ... Of course it will go well.",
+      "es": "[Entrada-2]: Comienza lo divertido. Ahora he de someterme a un proceso sofisticado de hibernación que me permitirá llegar al planeta O-1 de la galaxia vecina, Urion, en el menor tiempo posible. Bueno, eso realmente será solo mi percepción, ya que en el resto del universo habrán pasado concretamente 5 años hasta que despierte, si todo va bien... ... ... Por supuesto que irá bien."
+    },
+    {
+      "key": "dOpening03",
+      "en": "[Entry-3]: I open this entry only to record what is happening, in case I die or something and someone finds, by some chance of life, this logbook...",
+      "es": "[Entrada-3]: Abro esta entrada solo para que quede constancia de qué está pasando, por si acaso me muero o algo y alguien encuentra, por algún casual de la vida, este cuaderno de bitácora..."
+    },
+    {
+      "key": "dOpening04",
+      "en": "Thera, my planet, is being destroyed. We are currently in the year 7025 and things have only gotten worse in terms of pollution. Thanks to current technology we have been able to predict that in less than a century, Thera will go down in history for numerous cataclysms...",
+      "es": "Thera, mi planeta, se destruye. Estamos actualmente en el año 7025 y las cosas no han hecho más que empeorar en cuanto a la contaminación. Gracias a la tecnología actual hemos podido predecir que en menos de un siglo, Thera pasará a la historia por numerosos cataclismos..."
+    },
+    {
+      "key": "dOpening05",
+      "en": "Clearly these cataclysms are due to how we are treating the planet. My mission is to verify that planet O-1 is habitable and, if so, report to Thera so that an evacuation plan, Orbital-2, can be carried out.",
+      "es": "Claramente estos cataclismos se deben a cómo estamos tratando al planeta. Mi misión es comprobar que el planeta O-1 es habitable y, si es así, informar a Thera para que se pueda llevar a cabo un plan de evacuación, Orbital-2."
+    },
+    {
+      "key": "dOpening06",
+      "en": "According to our advanced studies, with the wonderful technology we have (or at least that's what I want to believe, that it's wonderful), O-1 presents characteristics that could make it habitable: atmosphere, water, vegetation... But, of course, all this is just theory...",
+      "es": "Según nuestros estudios avanzados, con la tan maravillosa tecnología que poseemos (o al menos eso quiero creer, que es maravillosa), O-1 presenta características que lo podrían hacer habitable: atmósfera, agua, vegetación... Pero, claro, todo esto es solo teoría..."
+    },
+    {
+      "key": "dOpening07",
+      "en": "To sum up, I have to take a probe to O-1 and collect information with it to then analyze it here on the ship and return to Thera. All this is expected to last about 12 years in Thera, although for me it will only be a matter of days, supposedly.",
+      "es": "En resúmen, tengo que llevar una sonda hasta O-1 y recoger información con ella para luego analizarla aquí en la nave y volver a Thera. Todo esto se prevée que dure unos 12 años en Thera, aunque para mí solo será cuestión de días, supuestamente."
+    },
+    {
+      "key": "dOpening08",
+      "en": "Anyways, time to go to bed, he-he... Wish me luck.",
+      "es": "En fin, hora de irse a la cama, je-je... Deseadme suerte."
     }
   ]
 }
