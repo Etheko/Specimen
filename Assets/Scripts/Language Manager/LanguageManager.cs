@@ -25,8 +25,8 @@ public class LanguageManager : MonoBehaviour
     public void loadTexts()
     {
         // load the language from the JSON file
-        var languageConfig = JsonUtility.FromJson<LanguageSettingsModel>(configJSONFile.text);
-        language = languageConfig.selectedLanguage;
+        languageSettings = JsonUtility.FromJson<LanguageSettingsModel>(configJSONFile.text);
+        language = languageSettings.selectedLanguage;
 
         // load all the texts from the JSON file, depending on the language
         var languageDictionary = JsonUtility.FromJson<LanguageDictionary>(stringsJSONFile.text);
@@ -47,7 +47,9 @@ public class LanguageManager : MonoBehaviour
     public void changeLanguage(string newLanguage)
     {
         language = newLanguage;
-        JsonUtility.FromJsonOverwrite(configJSONFile.text, new LanguageSettingsModel { selectedLanguage = newLanguage });
+        languageSettings.selectedLanguage = newLanguage;
+        string newJson = JsonUtility.ToJson(languageSettings);
+        File.WriteAllText(Application.dataPath + "/Resources/Text/langSettings.json", newJson);
         loadTexts();
     }
 

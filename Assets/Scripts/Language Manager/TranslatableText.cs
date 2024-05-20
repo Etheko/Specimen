@@ -20,7 +20,6 @@ public class TranslatableText : MonoBehaviour
     {
         textMeshPro = GetComponent<TextMeshProUGUI>();
 
-        // get the script "LanguageManager" from the actual object
         LanguageManager languageManagerScript = GetComponent<LanguageManager>();
 
         string key = textMeshPro.text;
@@ -37,11 +36,11 @@ public class TranslatableText : MonoBehaviour
         }
         return textToWrite;
     }
-    
+
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
