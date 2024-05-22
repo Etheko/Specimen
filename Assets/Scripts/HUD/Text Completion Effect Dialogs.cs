@@ -18,6 +18,8 @@ public class TextCompletionEffectDialogs : MonoBehaviour
 
     private LanguageManager languageManager;
 
+    private bool dialogDone = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,15 +44,49 @@ public class TextCompletionEffectDialogs : MonoBehaviour
         animateTextCoroutine = StartCoroutine(AnimateText());
     }
 
+    public void startNewDialog(string dialogKey)
+    {
+        languageManager = GetComponent<LanguageManager>();
+        dialogues = languageManager.getDialogs(dialogKey);
+        inputText = dialogues[0];
+        currentDialogue = 0;
+        animateTextCoroutine = StartCoroutine(AnimateText());
+    }
+
     public bool nextDialog()
     {
         if (currentDialogue < dialogues.Length)
         {
+            continueIcon.SetActive(false);
             inputText = dialogues[currentDialogue];
             animateTextCoroutine = StartCoroutine(AnimateText());
             return true; // Return true if there are more dialogues
         }
         return false; // Return false if there are no more dialogues
+    }
+
+    public bool isDialogDone()
+    {
+        return dialogDone;
+    }
+
+    public bool isDialogDoneRealTime()
+    {
+        return currentDialogue >= dialogues.Length;
+    }
+
+    public void skipAnimation()
+    {
+        StopCoroutine(animateTextCoroutine);
+        textMeshPro.text = inputText;
+        continueIcon.SetActive(true);
+        currentDialogue++;
+
+    }
+
+    public bool isDialogLineDone()
+    {
+        return textMeshPro.text == inputText;
     }
 
     void OnDisable()
@@ -71,7 +107,7 @@ public class TextCompletionEffectDialogs : MonoBehaviour
         for (int i = 0; i < inputText.Length; i++)
         {
             textMeshPro.text = inputText.Substring(0, i) + "_";
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(0.02f);
         }
 
         textMeshPro.text = inputText; // Remove the "_" at the end
@@ -83,5 +119,26 @@ public class TextCompletionEffectDialogs : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+
+            if (!isDialogLineDone())
+            {
+                skipAnimation();
+            }
+            else
+            {
+
+                // Load the next dialog
+                if (!nextDialog())
+                {
+                    dialogDone = true;
+                    //TODO: fade out the dialog box
+
+                    gameObject.SetActive(false);
+                }
+            }
+
+        }
     }
 }

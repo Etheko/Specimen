@@ -1,8 +1,11 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+    public bool movementEnabled = true;
+
     public float speed;
 
     public LayerMask solidObjectsLayer;
@@ -41,11 +44,50 @@ public class PlayerController : MonoBehaviour
 
     public float rightYOffset = -1.5f;
 
+    public VectorValue startingPosition;
+
+    public bool hasSpawnPoint;
+
+    public bool resetSpawnPoint;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
         runningSpeed = speed * 2;
         originalSpeed = speed;
+    }
+
+    private void Start()
+    {
+        RoundUpAllCoordinates();
+        CheckCollisions();
+
+        if (resetSpawnPoint)
+        {
+            PlayerPrefs.SetInt(SceneManager.GetActiveScene().name, 0);
+        }
+
+        if (hasSpawnPoint)
+        {
+            if (PlayerPrefs.GetInt(SceneManager.GetActiveScene().name) == 0)
+            {
+                PlayerPrefs.SetInt(SceneManager.GetActiveScene().name, 1);
+                Debug.Log("First time here");
+            }
+            else
+            {
+                Debug.Log("Not the first time here");
+                transform.position = startingPosition.initialValue;
+                animator.SetFloat("moveX", startingPosition.playerDirection.x);
+                animator.SetFloat("moveY", startingPosition.playerDirection.y);
+            }
+        }
+        else
+        {
+            transform.position = startingPosition.initialValue;
+            animator.SetFloat("moveX", startingPosition.playerDirection.x);
+            animator.SetFloat("moveY", startingPosition.playerDirection.y);
+        }
     }
 
 
@@ -143,12 +185,30 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        GetInput();
+        if (movementEnabled)
+        {
+            GetInput();
+        }
+        else
+        {
+            //stop animation after player has stopped moving
+            if (animator.GetBool("isWalking"))
+            {
+                // wait half a second before stopping the animation
+                StartCoroutine(StopAnimation());
+            }
+        }
+
+    }
+
+    IEnumerator StopAnimation()
+    {
+        yield return new WaitForSeconds(0.2f);
+        animator.SetBool("isWalking", false);
     }
 
     IEnumerator Move(Vector3 targetPos)
     {
-        Debug.Log("Target pos: " + targetPos);
         isMoving = true;
         while ((targetPos - transform.position).sqrMagnitude > Mathf.Epsilon)
         {
@@ -158,8 +218,6 @@ public class PlayerController : MonoBehaviour
 
         var xDiff = startPos.x - targetPos.x;
         var yDiff = startPos.y - targetPos.y;
-        Debug.Log("Final pos: " + transform.position);
-        Debug.Log("X diff: " + xDiff + " Y diff: " + yDiff);
         transform.position = targetPos;
         isMoving = false;
         CheckCollisions();
@@ -171,17 +229,23 @@ public class PlayerController : MonoBehaviour
         transform.position = new Vector3(Mathf.Round(transform.position.x), Mathf.Round(transform.position.y), 0);
     }
 
-    private void CheckCollisions() // Check if any of the adjacent cells have a collisionbox (the offset is due to the pivot point of the player)
+    private void CheckCollisions()
     {
-        collisions[0] = Physics2D.OverlapBox(new Vector2(transform.position.x + upXOffset, transform.position.y + upYOffset), new Vector2(0, 0), 0) ? 1 : 0;
+        Collider2D collider;
 
-        collisions[1] = Physics2D.OverlapBox(new Vector2(transform.position.x + downXOffset, transform.position.y + downYOffset), new Vector2(0, 0), 0) ? 1 : 0;
+        collider = Physics2D.OverlapBox(new Vector2(transform.position.x + upXOffset, transform.position.y + upYOffset), new Vector2(0, 0), 0);
+        collisions[0] = (collider != null && collider.tag != "No Collider") ? 1 : 0;
 
-        collisions[2] = Physics2D.OverlapBox(new Vector2(transform.position.x + leftXOffset, transform.position.y + leftYOffset), new Vector2(0, 0), 0) ? 1 : 0;
+        collider = Physics2D.OverlapBox(new Vector2(transform.position.x + downXOffset, transform.position.y + downYOffset), new Vector2(0, 0), 0);
+        collisions[1] = (collider != null && collider.tag != "No Collider") ? 1 : 0;
 
-        collisions[3] = Physics2D.OverlapBox(new Vector2(transform.position.x + rightXOffset, transform.position.y + rightYOffset), new Vector2(0, 0), 0) ? 1 : 0;
+        collider = Physics2D.OverlapBox(new Vector2(transform.position.x + leftXOffset, transform.position.y + leftYOffset), new Vector2(0, 0), 0);
+        collisions[2] = (collider != null && collider.tag != "No Collider") ? 1 : 0;
+
+        collider = Physics2D.OverlapBox(new Vector2(transform.position.x + rightXOffset, transform.position.y + rightYOffset), new Vector2(0, 0), 0);
+        collisions[3] = (collider != null && collider.tag != "No Collider") ? 1 : 0;
 
         Debug.Log("UP: " + collisions[0] + " DOWN: " + collisions[1] + " LEFT: " + collisions[2] + " RIGHT: " + collisions[3]);
-
     }
+
 }

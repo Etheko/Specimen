@@ -6,6 +6,9 @@ public class Opening : MonoBehaviour
 
     public GameObject backgroundMusic;
 
+    public VectorValue playerStorage;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,15 +19,14 @@ public class Opening : MonoBehaviour
     void Update()
     {
         // Get user input
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (dialog.GetComponent<TextCompletionEffectDialogs>().isDialogDone())
         {
-            // Load the next dialog
-            if (!dialog.GetComponent<TextCompletionEffectDialogs>().nextDialog())
-            {
-                // Load the game scene
-                backgroundMusic.GetComponent<AudioManager>().FadeOut();
-                UnityEngine.SceneManagement.SceneManager.LoadScene(3);
-            }
+
+            // Load the game scene
+            backgroundMusic.GetComponent<AudioManager>().FadeOut();
+            playerStorage.initialValue = new Vector2(0, 0);
+            playerStorage.playerDirection = new Vector2(0, -1);
+            UnityEngine.SceneManagement.SceneManager.LoadScene(3);
 
         }
 

@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Ship.unity
     guid: ed16fe05b6252bf49857db889f20980c
+  - enabled: 1
+    path: Assets/Scenes/Corridor.unity
+    guid: 5809eb7cc1425fc408bc0e5279c23902
   m_configObjects: {}

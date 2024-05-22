@@ -757,6 +757,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialog: {fileID: 1676295671}
   backgroundMusic: {fileID: 690037232}
+  playerStorage: {fileID: 11400000, guid: 3d24d698454a4ef4fb8050b7902df174, type: 2}
 --- !u!1 &1676295671
 GameObject:
   m_ObjectHideFlags: 0
