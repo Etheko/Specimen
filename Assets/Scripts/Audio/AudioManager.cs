@@ -7,6 +7,8 @@ public class AudioManager : MonoBehaviour
 
     public AudioSource audioSource;
 
+    public float delay;
+
     void Start()
     {
 
@@ -15,8 +17,15 @@ public class AudioManager : MonoBehaviour
             audioSource = GetComponent<AudioSource>();
         }
 
-        audioSource.Play();
+        //wait a few miliseconds before starting the music
+        StartCoroutine(StartMusic());
         DontDestroyOnLoad(gameObject);
+    }
+
+    IEnumerator StartMusic()
+    {
+        yield return new WaitForSeconds(delay);
+        audioSource.Play();
     }
 
     // fade out the audio when the scene is changed
