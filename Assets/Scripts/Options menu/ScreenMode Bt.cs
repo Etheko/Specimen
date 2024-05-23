@@ -6,6 +6,8 @@ public class ScreenModeBt : MonoBehaviour
 
     private Button button;
 
+    public GameObject buttonText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,11 +17,15 @@ public class ScreenModeBt : MonoBehaviour
         // Check if the game is in fullscreen mode
         if (Screen.fullScreen)
         {
-            button.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "Mode: Fullscreen";
+
+            buttonText.GetComponent<TMPro.TextMeshProUGUI>().text = "screenModeFullscreen";
+            buttonText.GetComponent<TranslatableText>().initialize();
         }
         else
         {
-            button.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "Mode: Windowed";
+            buttonText.GetComponent<TMPro.TextMeshProUGUI>().text = "screenModeWindow";
+            buttonText.GetComponent<TranslatableText>().initialize();
+
         }
 
     }
@@ -37,13 +43,15 @@ public class ScreenModeBt : MonoBehaviour
         {
             Screen.SetResolution(Screen.currentResolution.width, Screen.currentResolution.height, false);
 
-            button.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "Mode: Windowed";
+            buttonText.GetComponent<TMPro.TextMeshProUGUI>().text = "screenModeWindow";
+            buttonText.GetComponent<TranslatableText>().initialize();
         }
         else
         {
             Screen.SetResolution(Screen.currentResolution.width, Screen.currentResolution.height, true); //set to fullscreen
 
-            button.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "Mode: Fullscreen";
+            buttonText.GetComponent<TMPro.TextMeshProUGUI>().text = "screenModeFullscreen";
+            buttonText.GetComponent<TranslatableText>().initialize();
         }
     }
 }

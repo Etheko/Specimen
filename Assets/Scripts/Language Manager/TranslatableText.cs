@@ -13,10 +13,10 @@ public class TranslatableText : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        initialize();
+        getTextToWrite();
     }
 
-    private void initialize()
+    public void initialize()
     {
         textMeshPro = GetComponent<TextMeshProUGUI>();
 
@@ -26,6 +26,11 @@ public class TranslatableText : MonoBehaviour
 
         textToWrite = languageManagerScript.getText(key);
         textMeshPro.text = textToWrite;
+    }
+
+    public bool isInitialized()
+    {
+        return textToWrite != null;
     }
 
     public string getTextToWrite()

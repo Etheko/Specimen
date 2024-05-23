@@ -116,6 +116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c309fa9fed8d4bb4b8157f7dc96069e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
 --- !u!114 &8959617418308048973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,7 +132,7 @@ MonoBehaviour:
   canvasGroup: {fileID: 6469628314795459119}
   fadeIn: 0
   fadeOut: 0
-  fadeSpeed: 1
+  fadeSpeed: 2
 --- !u!1 &8949210013442912423
 GameObject:
   m_ObjectHideFlags: 0

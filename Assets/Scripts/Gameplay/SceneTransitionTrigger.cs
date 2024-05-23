@@ -25,7 +25,7 @@ public class SceneTransitionTrigger : MonoBehaviour
     {
 
         fadeEffect.FadeIn();
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         SceneManager.LoadScene(sceneToGo);
 
 

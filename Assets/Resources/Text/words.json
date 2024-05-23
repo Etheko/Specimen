@@ -33,6 +33,16 @@
       "es": "Ajustes de sonido"
     },
     {
+      "key": "screenModeFullscreen",
+      "en": "Mode: Fullscreen",
+      "es": "Modo: Pantalla completa"
+    },
+    {
+      "key": "screenModeWindow",
+      "en": "Mode: Window",
+      "es": "Modo: Ventana"
+    },
+    {
       "key": "back",
       "en": "< Back",
       "es": "< Volver"

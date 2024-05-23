@@ -118,7 +118,7 @@ MonoBehaviour:
   canvasGroup: {fileID: 8208341920187046424}
   fadeIn: 0
   fadeOut: 0
-  fadeSpeed: 1
+  fadeSpeed: 2
 --- !u!1 &5727786694799110855
 GameObject:
   m_ObjectHideFlags: 0
