@@ -1,16 +1,51 @@
 using System.Collections;
 using UnityEngine;
 
-public class DevESC : Wizard
+public class DevESC : MonoBehaviour
 {
+
+    Wizard wizard = new Wizard();
+
+    public GameObject gameMenuObject;
+
+    public GameObject gameMenuWindow;
+
+    public GameObject optionsMenuWindow;
+
+    public GameObject player;
+
+    public void disablePlayerMovement()
+    {
+        player.GetComponent<PlayerController>().movementEnabled = false;
+    }
+
+    public void enablePlayerMovement()
+    {
+        player.GetComponent<PlayerController>().movementEnabled = true;
+    }
 
     // Update is called once per frame
     void Update()
     {
-        // if ESC is pressed, load the main menu
+        // ESC
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene(1);
+            if (gameMenuObject.activeSelf)
+            {
+                optionsMenuWindow.SetActive(false);
+                gameMenuWindow.SetActive(true);
+                gameMenuObject.SetActive(false);
+                Time.timeScale = 1;
+                enablePlayerMovement();
+            }
+            else
+            {
+                Time.timeScale = 0;
+                disablePlayerMovement();
+                gameMenuObject.SetActive(true);
+                gameMenuWindow.SetActive(true);
+                optionsMenuWindow.SetActive(false);
+            }
         }
 
 
@@ -23,14 +58,14 @@ public class DevESC : Wizard
 
     IEnumerator ShowDialogCoroutine()
     {
-        ShowDialog(":)", "You know what this means... :3");
+        wizard.ShowDialog(":)", "You know what this means... :3");
         yield return null;
     }
 
     IEnumerator CreateTextFileCoroutine()
     {
-        CreateTextFile("Just a file.txt", "???????????????????????????????");
-        ShowDialog("???", "Check your desktop!");
+        wizard.CreateTextFile("Just a file.txt", "???????????????????????????????");
+        wizard.ShowDialog("???", "Check your desktop!");
         yield return null;
     }
 

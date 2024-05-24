@@ -1,7 +1,7 @@
 using System.Runtime.InteropServices;
 using UnityEngine;
 
-public class Wizard : MonoBehaviour
+public class Wizard
 {
     [DllImport("user32.dll", CharSet = CharSet.Auto)]
     public static extern int MessageBox(int hWnd, string text, string caption, int options);

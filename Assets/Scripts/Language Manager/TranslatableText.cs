@@ -42,6 +42,14 @@ public class TranslatableText : MonoBehaviour
         return textToWrite;
     }
 
+    public string getTextToWrite(string text)
+    {
+        LanguageManager languageManagerScript = GetComponent<LanguageManager>();
+
+        textToWrite = languageManagerScript.getText(text);
+        return textToWrite;
+    }
+
 
     // Update is called once per frame
     void Update()

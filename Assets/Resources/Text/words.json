@@ -23,14 +23,24 @@
       "es": "Abandonar"
     },
     {
+      "key": "resumeGame",
+      "en": "Resume",
+      "es": "Continuar"
+    },
+    {
+      "key": "gameControls",
+      "en": "Controls",
+      "es": "Controles"
+    },
+    {
       "key": "changeLanguage",
       "en": "Language",
       "es": "Idioma"
     },
     {
       "key": "audioSettings",
-      "en": "Audio settings",
-      "es": "Ajustes de sonido"
+      "en": "Audio",
+      "es": "Sonido"
     },
     {
       "key": "screenModeFullscreen",
@@ -46,6 +56,16 @@
       "key": "back",
       "en": "< Back",
       "es": "< Volver"
+    },
+    {
+      "key": "pausedGame",
+      "en": "Paused",
+      "es": "Pausa"
+    },
+    {
+      "key": "mainMenu",
+      "en": "Main menu",
+      "es": "Menú del juego"
     },
     {
       "key": "en",
