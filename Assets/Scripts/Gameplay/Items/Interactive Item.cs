@@ -36,6 +36,7 @@ public class InteractiveItem : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && isInteractable && collider.IsTouching(player.GetComponent<Collider2D>()))
         {
+            AudioSystemManager.instance.PlayEffect("sfxNewQuest");
             if (itemType == ItemType.documentTextOnly)
             {
                 Debug.Log("documentTextOnly");

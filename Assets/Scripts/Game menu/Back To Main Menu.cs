@@ -23,6 +23,8 @@ public class BackToMainMenu : MonoBehaviour
     void Back()
     {
         //disable gameMenuWindow parent object
+        AudioSystemManager.instance.PlayEffect("sfxAction");
+        AudioSystemManager.instance.disableFilter();
         gameMenuWindow.SetActive(false);
         Time.timeScale = 1;
         inGameUI.GetComponent<DevESC>().enablePlayerMovement();

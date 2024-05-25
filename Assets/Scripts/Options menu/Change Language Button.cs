@@ -26,6 +26,7 @@ public class ChangeLanguageButton : MonoBehaviour
 
     public void changeLanguage()
     {
+        AudioSystemManager.instance.PlayEffect("sfxAction");
         LanguageManager languageManager = GetComponent<LanguageManager>();
         // change the language
         languageManager.changeLanguage(selectedLanguage);

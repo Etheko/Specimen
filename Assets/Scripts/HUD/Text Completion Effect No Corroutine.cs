@@ -61,22 +61,16 @@ public class TextCompletionEffectNoCorroutine : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Si el tiempo real desde el inicio del juego es mayor que el tiempo en el que se debe mostrar el próximo carácter
         if (Time.realtimeSinceStartup > nextCharacterTime)
         {
-            // Si aún quedan caracteres por mostrar
             if (characterIndex < inputText.Length)
             {
-                // Muestra el próximo carácter con un "_" al final
                 textMeshPro.text = inputText.Substring(0, characterIndex) + "_";
-                // Incrementa el índice del carácter
                 characterIndex++;
-                // Establece el tiempo en el que se debe mostrar el próximo carácter
                 nextCharacterTime = Time.realtimeSinceStartup + delay;
             }
             else
             {
-                // Si no quedan caracteres por mostrar, elimina el "_" al final
                 textMeshPro.text = inputText;
             }
         }

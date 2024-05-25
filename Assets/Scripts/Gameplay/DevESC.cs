@@ -32,6 +32,7 @@ public class DevESC : MonoBehaviour
         {
             if (gameMenuObject.activeSelf)
             {
+                AudioSystemManager.instance.disableFilter();
                 optionsMenuWindow.SetActive(false);
                 gameMenuWindow.SetActive(true);
                 gameMenuObject.SetActive(false);
@@ -40,6 +41,7 @@ public class DevESC : MonoBehaviour
             }
             else
             {
+                AudioSystemManager.instance.enableFilter();
                 Time.timeScale = 0;
                 disablePlayerMovement();
                 gameMenuObject.SetActive(true);

@@ -68,6 +68,16 @@
       "es": "Menú del juego"
     },
     {
+      "key": "musicAudioSettingsTitle",
+      "en": "Music/Ambience:",
+      "es": "Música/Ambiente:"
+    },
+    {
+      "key": "effectsAudioSettingsTitle",
+      "en": "Effects:",
+      "es": "Efectos:"
+    },
+    {
       "key": "en",
       "en": "English",
       "es": "Inglés"

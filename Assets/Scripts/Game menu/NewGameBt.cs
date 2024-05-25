@@ -54,6 +54,7 @@ public class NewGameBt1 : MonoBehaviour
 
     void NewGame()
     {
+        AudioSystemManager.instance.PlayEffect("sfxAction");
         // Load the game scene
         UnityEngine.SceneManagement.SceneManager.LoadScene(2);
 

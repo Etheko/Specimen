@@ -38,6 +38,7 @@ public class ScreenModeBt : MonoBehaviour
 
     void ScreenMode()
     {
+        AudioSystemManager.instance.PlayEffect("sfxAction");
         //change screen mode
         if (Screen.fullScreen)
         {

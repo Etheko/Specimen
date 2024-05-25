@@ -61,6 +61,10 @@ PrefabInstance:
       propertyPath: inGameUI
       value: 
       objectReference: {fileID: 2702532302742239465}
+    - target: {fileID: 1520444701960593457, guid: 2d421ab5c10ffc44a8e1648b03395d90, type: 3}
+      propertyPath: inGameUI
+      value: 
+      objectReference: {fileID: 2702532302742239465}
     - target: {fileID: 2139976493856365965, guid: 2d421ab5c10ffc44a8e1648b03395d90, type: 3}
       propertyPath: gameMenuObject
       value: 
@@ -149,7 +153,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2388410213642989130, guid: 2d421ab5c10ffc44a8e1648b03395d90, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

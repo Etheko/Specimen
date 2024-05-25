@@ -25,6 +25,7 @@ public class OptionsBt : MonoBehaviour
 
     void Options()
     {
+        AudioSystemManager.instance.PlayEffect("sfxAction");
         //disable MainMenuWindow parent object and enable OptionsMenuWindow
         MainMenuWindow.SetActive(false);
         OptionsMenuWindow.SetActive(true);

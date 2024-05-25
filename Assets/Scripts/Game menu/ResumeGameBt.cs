@@ -21,7 +21,9 @@ public class ResumeGameBt : MonoBehaviour
 
     void ResumeGame()
     {
+        AudioSystemManager.instance.PlayEffect("sfxAction");
         //disable gameMenuWindow parent object
+        AudioSystemManager.instance.disableFilter();
         gameMenuWindow.SetActive(false);
         Time.timeScale = 1;
         gameMenuObject.GetComponent<DevESC>().enablePlayerMovement();
