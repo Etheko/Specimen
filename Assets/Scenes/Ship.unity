@@ -314,9 +314,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isInteractable: 1
   isOnSurface: 0
+  DialogsUIOverlay: {fileID: 1269501599}
   player: {fileID: 1438274065}
   hitbox: {fileID: 3333850172246148113}
   itemType: 0
+  documentText: 
+  image: {fileID: 0}
+  text: 
+  image2: {fileID: 0}
+  imageFull: {fileID: 0}
+  noteText: 
+  dialogKey: 
 --- !u!1 &455560090
 GameObject:
   m_ObjectHideFlags: 0
@@ -795,9 +803,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isInteractable: 1
   isOnSurface: 0
+  DialogsUIOverlay: {fileID: 1269501599}
   player: {fileID: 1438274065}
   hitbox: {fileID: 531512706}
-  itemType: 0
+  itemType: 5
+  documentText: 
+  image: {fileID: 0}
+  text: 
+  image2: {fileID: 0}
+  imageFull: {fileID: 0}
+  noteText: 
+  dialogKey: dDiagTest
 --- !u!114 &947087705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1006,6 +1022,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a4a439f006c1624da51bb6cda51a550, type: 3}
+--- !u!1 &1269501599 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9201978680912964271, guid: 4fb7d29651bf8214aa34de2f776ffd57, type: 3}
+  m_PrefabInstance: {fileID: 4913018509491629360}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1301134252 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5627020065563445271, guid: 4fb7d29651bf8214aa34de2f776ffd57, type: 3}
@@ -16501,6 +16522,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1438274065}
+    - target: {fileID: 210215668919548451, guid: d3678e927b90cab408ce380b4e88a771, type: 3}
+      propertyPath: DialogsUIOverlay
+      value: 
+      objectReference: {fileID: 1269501599}
     - target: {fileID: 1797528516544756747, guid: d3678e927b90cab408ce380b4e88a771, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

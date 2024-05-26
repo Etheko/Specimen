@@ -8,6 +8,8 @@ public class InteractiveItem : MonoBehaviour
     public bool isInteractable = true;
     public bool isOnSurface = false;
 
+    public GameObject DialogsUIOverlay;
+
     public GameObject player;
 
     public GameObject hitbox;
@@ -20,10 +22,32 @@ public class InteractiveItem : MonoBehaviour
         documentTextOnly,
         documentImageOnly,
         documentTextAndImage,
-        documentImageFull
+        documentImageFull,
+        note,
+        dialog
     }
 
     public ItemType itemType;
+
+    [DrawIf("itemType", ItemType.documentTextOnly)]
+    public string documentText;
+
+    [DrawIf("itemType", ItemType.documentImageOnly)]
+    public Sprite image;
+
+    [DrawIf("itemType", ItemType.documentTextAndImage)]
+    public string text;
+    [DrawIf("itemType", ItemType.documentTextAndImage)]
+    public Sprite image2;
+
+    [DrawIf("itemType", ItemType.documentImageFull)]
+    public Sprite imageFull;
+
+    [DrawIf("itemType", ItemType.note)]
+    public string noteText;
+
+    [DrawIf("itemType", ItemType.dialog)]
+    public string dialogKey;
 
     // Start is called before the first frame update
     void Start()
@@ -34,24 +58,31 @@ public class InteractiveItem : MonoBehaviour
 
     public void checkCollision()
     {
-        if (Input.GetKeyDown(KeyCode.E) && isInteractable && collider.IsTouching(player.GetComponent<Collider2D>()))
+        if (Input.GetKeyDown(KeyCode.E) && isInteractable && collider.IsTouching(player.GetComponent<Collider2D>()) && player.GetComponent<PlayerController>().movementEnabled)
         {
+            DialogController dialogController = DialogsUIOverlay.GetComponent<DialogController>();
             AudioSystemManager.instance.PlayEffect("sfxNewQuest");
-            if (itemType == ItemType.documentTextOnly)
+
+            switch (itemType)
             {
-                Debug.Log("documentTextOnly");
-            }
-            else if (itemType == ItemType.documentImageOnly)
-            {
-                Debug.Log("documentImageOnly");
-            }
-            else if (itemType == ItemType.documentTextAndImage)
-            {
-                Debug.Log("documentTextAndImage");
-            }
-            else if (itemType == ItemType.documentImageFull)
-            {
-                Debug.Log("documentImageFull");
+                case ItemType.documentTextOnly:
+                    Debug.Log("documentTextOnly");
+                    break;
+                case ItemType.documentImageOnly:
+                    Debug.Log("documentImageOnly");
+                    break;
+                case ItemType.documentTextAndImage:
+                    Debug.Log("documentTextAndImage");
+                    break;
+                case ItemType.documentImageFull:
+                    Debug.Log("documentImageFull");
+                    break;
+                case ItemType.note:
+                    Debug.Log("note");
+                    break;
+                case ItemType.dialog:
+                    dialogController.showDialog(dialogKey);
+                    break;
             }
         }
     }

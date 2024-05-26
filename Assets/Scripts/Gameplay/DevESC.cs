@@ -14,6 +14,8 @@ public class DevESC : MonoBehaviour
 
     public GameObject player;
 
+    public GameObject DialogsUIOverlay;
+
     public void disablePlayerMovement()
     {
         player.GetComponent<PlayerController>().movementEnabled = false;
@@ -21,7 +23,15 @@ public class DevESC : MonoBehaviour
 
     public void enablePlayerMovement()
     {
-        player.GetComponent<PlayerController>().movementEnabled = true;
+        if (!dialogsOpen())
+            player.GetComponent<PlayerController>().movementEnabled = true;
+    }
+
+    public bool dialogsOpen()
+    {
+        bool dialogFrame = DialogsUIOverlay.transform.Find("Dialog Frame").gameObject.activeSelf;
+        bool documentFrame = DialogsUIOverlay.transform.Find("Document Frame").gameObject.activeSelf;
+        return dialogFrame || documentFrame;
     }
 
     // Update is called once per frame
@@ -37,7 +47,9 @@ public class DevESC : MonoBehaviour
                 gameMenuWindow.SetActive(true);
                 gameMenuObject.SetActive(false);
                 Time.timeScale = 1;
+
                 enablePlayerMovement();
+
             }
             else
             {

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -81,6 +82,11 @@ public class LanguageManager : MonoBehaviour
 
     public string[] getDialogs(string key)
     {
+        if (key == null || key == "")
+        {
+            return new string[0];
+        }
+
         if (texts == null)
         {
             loadTexts();
