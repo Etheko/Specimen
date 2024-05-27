@@ -124,13 +124,13 @@
     },
     {
       "key": "dOpening08",
-      "en": "Anyways, time to go to bed, he-he... Wish me luck.",
-      "es": "En fin, hora de irse a la cama, je-je... Deseadme suerte."
+      "en": "Anyways, time to go to bed, <i>he-he...</i> Wish me luck.",
+      "es": "En fin, hora de irse a la cama, <i>je-je...</i> Deseadme suerte."
     },
     {
       "key": "dDiagTest01",
-      "en": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc enim tellus, commodo eu nisl vitae, faucibus fermentum magna. Suspendisse ultrices cursus eros.",
-      "es": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc enim tellus, commodo eu nisl vitae, faucibus fermentum magna. Suspendisse ultrices cursus eros."
+      "en": "Lorem ipsum dolor sit <b><i>amet</i></b>, consectetur adipiscing elit. Nunc enim tellus, commodo eu nisl vitae, faucibus fermentum magna. Suspendisse ultrices cursus eros.",
+      "es": "Lorem ipsum dolor sit <b><i>amet</i></b>, consectetur adipiscing elit. Nunc enim tellus, commodo eu nisl vitae, faucibus fermentum magna. Suspendisse ultrices cursus eros."
     },
     {
       "key": "dDiagTest02",
@@ -141,6 +141,11 @@
       "key": "dDiagTest03",
       "en": "Aenean condimentum et mauris vel semper. Ut ullamcorper aliquet quam vitae congue.",
       "es": "Aenean condimentum et mauris vel semper. Ut ullamcorper aliquet quam vitae congue."
+    },
+    {
+      "key": "nTestNoteShip",
+      "en": "<color=red>Test?</color>\n<i>test</i>",
+      "es": "<color=blue>Prueba?</color>\n<i>prueba</i>"
     }
   ]
 }

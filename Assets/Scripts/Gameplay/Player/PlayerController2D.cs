@@ -126,7 +126,7 @@ public class PlayerController : MonoBehaviour
                 animator.SetFloat("moveX", input.x);
                 animator.SetFloat("moveY", input.y);
 
-                // if any of the adjacent cells have a collisionbox, stop the player from moving to that direction
+                // if any of the adjacent cells have a collision box, stop the player from moving to that direction
                 if (input.x == 1 && collisions[3] == 1)
                 {
                     input.x = 0;
@@ -221,7 +221,7 @@ public class PlayerController : MonoBehaviour
         transform.position = targetPos;
         isMoving = false;
         CheckCollisions();
-        RoundUpAllCoordinates(); // remove coordinates with decimals and round them up
+        RoundUpAllCoordinates(); // remove coordinates with decimals and round them up coordinates
     }
 
     private void RoundUpAllCoordinates()

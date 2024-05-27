@@ -115,6 +115,22 @@ public class AudioSystemManager : MonoBehaviour
     }
 
     /// <summary>
+    /// Plays the specified music file on loop
+    /// </summary>
+    /// <param name="filename"></param>
+    public void PlayMusicOnLoop(string filename)
+    {
+        if (musicController.GetComponent<AudioSource>().clip != null && musicController.GetComponent<AudioSource>().clip.name == filename && musicController.GetComponent<AudioSource>().isPlaying)
+        {
+            return;
+        }
+        musicController.GetComponent<AudioSource>().clip = Resources.Load<AudioClip>("Audio/Music/" + filename);
+        musicController.GetComponent<AudioSource>().loop = true;
+        musicController.GetComponent<AudioSource>().Play();
+    }
+
+
+    /// <summary>
     /// Plays the specified effect file
     /// </summary>
     /// <param name="fileName"></param>

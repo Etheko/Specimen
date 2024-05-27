@@ -9,6 +9,12 @@ public class DialogController : MonoBehaviour
 
     public GameObject dialogText;
 
+    public GameObject noteFrame;
+
+    public GameObject noteText;
+
+    public GameObject noteBackground;
+
     private LanguageManager languageManager;
 
     // Start is called before the first frame update
@@ -44,9 +50,10 @@ public class DialogController : MonoBehaviour
 
     }
 
-    public void showNote()
+    public void showNote(string text)
     {
-
+        noteFrame.SetActive(true);
+        noteFrame.GetComponent<InGameNote>().setText(text, languageManager); 
     }
 
 

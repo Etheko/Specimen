@@ -22,7 +22,6 @@ public class InteractiveItem : MonoBehaviour
         documentTextOnly,
         documentImageOnly,
         documentTextAndImage,
-        documentImageFull,
         note,
         dialog
     }
@@ -39,9 +38,6 @@ public class InteractiveItem : MonoBehaviour
     public string text;
     [DrawIf("itemType", ItemType.documentTextAndImage)]
     public Sprite image2;
-
-    [DrawIf("itemType", ItemType.documentImageFull)]
-    public Sprite imageFull;
 
     [DrawIf("itemType", ItemType.note)]
     public string noteText;
@@ -78,11 +74,8 @@ public class InteractiveItem : MonoBehaviour
                 case ItemType.documentTextAndImage:
                     Debug.Log("documentTextAndImage");
                     break;
-                case ItemType.documentImageFull:
-                    Debug.Log("documentImageFull");
-                    break;
                 case ItemType.note:
-                    Debug.Log("note");
+                    dialogController.showNote(noteText);
                     break;
                 case ItemType.dialog:
                     dialogController.showDialog(dialogKey, dialogImages);
