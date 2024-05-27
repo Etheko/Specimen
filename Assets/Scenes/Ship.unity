@@ -325,6 +325,7 @@ MonoBehaviour:
   imageFull: {fileID: 0}
   noteText: 
   dialogKey: 
+  dialogImages: []
 --- !u!1 &455560090
 GameObject:
   m_ObjectHideFlags: 0
@@ -814,6 +815,10 @@ MonoBehaviour:
   imageFull: {fileID: 0}
   noteText: 
   dialogKey: dDiagTest
+  dialogImages:
+  - o1
+  - NeruNeutral
+  - o1
 --- !u!114 &947087705
 MonoBehaviour:
   m_ObjectHideFlags: 0

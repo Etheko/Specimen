@@ -49,6 +49,10 @@ public class InteractiveItem : MonoBehaviour
     [DrawIf("itemType", ItemType.dialog)]
     public string dialogKey;
 
+    [Header("Dialog Images")]
+    [Tooltip("Images to show in the dialog. Their file names go here, and must be in the order in which they will appear.")]
+    public List<string> dialogImages;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -81,7 +85,7 @@ public class InteractiveItem : MonoBehaviour
                     Debug.Log("note");
                     break;
                 case ItemType.dialog:
-                    dialogController.showDialog(dialogKey);
+                    dialogController.showDialog(dialogKey, dialogImages);
                     break;
             }
         }

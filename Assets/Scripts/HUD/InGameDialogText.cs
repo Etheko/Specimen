@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InGameDialogs : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class InGameDialogs : MonoBehaviour
     public string inputText; // Input text
 
     public GameObject continueIcon;
+
+    public GameObject imageObject;
 
     private Coroutine animateTextCoroutine; // Coroutine to animate the text
 
@@ -23,16 +26,23 @@ public class InGameDialogs : MonoBehaviour
 
     private LanguageManager languageManager;
 
+    private List<string> images;
+
     private void StartDialog()
     {
         inputText = dialogues[0];
+
+        if (currentDialogue < images.Count)
+            imageObject.GetComponent<RawImage>().texture = Resources.Load("Dialog Sprites/" + images[currentDialogue]) as Texture;
+
         animateTextCoroutine = StartCoroutine(AnimateText());
     }
 
 
 
-    public void startNewDialog(string dialogKey, LanguageManager langManager)
+    public void startNewDialog(string dialogKey, LanguageManager langManager, List<string> images)
     {
+        this.images = images;
         GameObject player = GameObject.Find("Player");
         player.GetComponent<PlayerController>().movementEnabled = !inmovilizePlayer;
         languageManager = langManager;
@@ -47,6 +57,9 @@ public class InGameDialogs : MonoBehaviour
     {
         if (currentDialogue < dialogues.Length)
         {
+            if (currentDialogue < images.Count)
+                imageObject.GetComponent<RawImage>().texture = Resources.Load("Dialog Sprites/" + images[currentDialogue]) as Texture;
+
             continueIcon.SetActive(false);
             inputText = dialogues[currentDialogue];
             animateTextCoroutine = StartCoroutine(AnimateText());

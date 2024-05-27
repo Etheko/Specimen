@@ -18,10 +18,10 @@ public class DialogController : MonoBehaviour
 
     }
 
-    public void showDialog(string key)
+    public void showDialog(string key, List<string> images)
     {
         dialogFrame.SetActive(true);
-        dialogText.GetComponent<InGameDialogs>().startNewDialog(key, languageManager);
+        dialogText.GetComponent<InGameDialogs>().startNewDialog(key, languageManager, images);
     }
 
     public void showDocumentTextOnly()
