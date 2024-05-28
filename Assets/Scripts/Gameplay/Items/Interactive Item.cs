@@ -32,18 +32,25 @@ public class InteractiveItem : MonoBehaviour
     public string documentText;
 
     [DrawIf("itemType", ItemType.documentImageOnly)]
-    public Sprite image;
+    public string imageFileName;
 
     [DrawIf("itemType", ItemType.documentTextAndImage)]
     public string text;
     [DrawIf("itemType", ItemType.documentTextAndImage)]
-    public Sprite image2;
+    public string imageName;
 
     [DrawIf("itemType", ItemType.note)]
     public string noteText;
 
     [DrawIf("itemType", ItemType.dialog)]
     public string dialogKey;
+
+    [Tooltip("If true, the dialog will show after the document is closed. (Doesn't apply to dialog type)")]
+    public bool hasDialogueAfter = false;
+
+    [DrawIf("hasDialogueAfter", true)]
+    [Tooltip("Key of the dialog to show after the document is closed.")]
+    public string extraDialogKey;
 
     [Header("Dialog Images")]
     [Tooltip("Images to show in the dialog. Their file names go here, and must be in the order in which they will appear.")]
@@ -66,16 +73,16 @@ public class InteractiveItem : MonoBehaviour
             switch (itemType)
             {
                 case ItemType.documentTextOnly:
-                    Debug.Log("documentTextOnly");
+                    dialogController.showDocumentTextOnly(documentText, hasDialogueAfter, dialogImages, extraDialogKey);
                     break;
                 case ItemType.documentImageOnly:
-                    Debug.Log("documentImageOnly");
+                    dialogController.showDocumentImageOnly(imageFileName, hasDialogueAfter, dialogImages, extraDialogKey);
                     break;
                 case ItemType.documentTextAndImage:
-                    Debug.Log("documentTextAndImage");
+                    dialogController.showDocumentTextAndImage(text, imageName, hasDialogueAfter, dialogImages, extraDialogKey);
                     break;
                 case ItemType.note:
-                    dialogController.showNote(noteText);
+                    dialogController.showNote(noteText, hasDialogueAfter, dialogImages, extraDialogKey);
                     break;
                 case ItemType.dialog:
                     dialogController.showDialog(dialogKey, dialogImages);

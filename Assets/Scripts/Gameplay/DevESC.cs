@@ -29,12 +29,12 @@ public class DevESC : MonoBehaviour
 
     public bool dialogsOpen()
     {
-        // bool documentTextOnlyFrame = DialogsUIOverlay.transform.Find("Document Text Only Frame").gameObject.activeSelf;
-        // bool documentTextAndImageFrame = DialogsUIOverlay.transform.Find("Document Text And Image Frame").gameObject.activeSelf;
-        // bool documentImageOnlyFrame = DialogsUIOverlay.transform.Find("Document Image Only Frame").gameObject.activeSelf;
+        bool documentTextOnlyFrame = DialogsUIOverlay.transform.Find("Document Text Only Frame").gameObject.activeSelf;
+        bool documentTextAndImageFrame = DialogsUIOverlay.transform.Find("Document Text And Image Frame").gameObject.activeSelf;
+        bool documentImageOnlyFrame = DialogsUIOverlay.transform.Find("Document Image Only Frame").gameObject.activeSelf;
         bool dialogFrame = DialogsUIOverlay.transform.Find("Dialog Frame").gameObject.activeSelf;
         bool noteFrame = DialogsUIOverlay.transform.Find("Note Frame").gameObject.activeSelf;
-        return dialogFrame || noteFrame;
+        return dialogFrame || noteFrame || documentTextOnlyFrame || documentImageOnlyFrame || documentTextAndImageFrame;
     }
 
     // Update is called once per frame

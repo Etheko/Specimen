@@ -15,6 +15,12 @@ public class DialogController : MonoBehaviour
 
     public GameObject noteBackground;
 
+    public GameObject documentTextOnlyFrame;
+
+    public GameObject documentImageOnlyFrame;
+
+    public GameObject documentTextAndImageFrame;
+
     private LanguageManager languageManager;
 
     // Start is called before the first frame update
@@ -30,30 +36,28 @@ public class DialogController : MonoBehaviour
         dialogText.GetComponent<InGameDialogs>().startNewDialog(key, languageManager, images);
     }
 
-    public void showDocumentTextOnly()
+    public void showDocumentTextOnly(string text, bool hasDialogAfter, List<string> imageList, string dialogKey)
     {
-
+        documentTextOnlyFrame.SetActive(true);
+        documentTextOnlyFrame.GetComponent<InGameDocumentTextOnly>().setText(text, languageManager, hasDialogAfter, imageList, dialogKey);
     }
 
-    public void showDocumentImageOnly()
+    public void showDocumentImageOnly(string imageFileName, bool hasDialogAfter, List<string> imageList, string dialogKey)
     {
-
+        documentImageOnlyFrame.SetActive(true);
+        documentImageOnlyFrame.GetComponent<InGameDocumentImageOnly>().setImage(imageFileName, hasDialogAfter, imageList, dialogKey);
     }
 
-    public void showDocumentTextAndImage()
+    public void showDocumentTextAndImage(string textKey, string imageFileName, bool hasDialogAfter, List<string> imageList, string dialogKey)
     {
-
+        documentTextAndImageFrame.SetActive(true);
+        documentTextAndImageFrame.GetComponent<InGameDocumentTextAndImage>().setTextAndImage(textKey, imageFileName, languageManager, hasDialogAfter, imageList, dialogKey);
     }
 
-    public void showDocumentImageFull()
-    {
-
-    }
-
-    public void showNote(string text)
+    public void showNote(string text, bool hasDialogAfter, List<string> imageList, string dialogKey)
     {
         noteFrame.SetActive(true);
-        noteFrame.GetComponent<InGameNote>().setText(text, languageManager); 
+        noteFrame.GetComponent<InGameNote>().setText(text, languageManager, hasDialogAfter, imageList, dialogKey); 
     }
 
 

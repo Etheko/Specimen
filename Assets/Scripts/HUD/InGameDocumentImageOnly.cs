@@ -1,18 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class InGameNote : MonoBehaviour
+public class InGameDocumentImageOnly : MonoBehaviour
 {
+
+    public GameObject image;
     public GameObject dialogsUIOverlay;
-    public GameObject text;
-    public GameObject noteBackground;
+
     private bool hasDialogAfter;
     private List<string> imageList;
     private string dialogKey;
 
-    private LanguageManager languageManager;
 
     // Start is called before the first frame update
     void Start()
@@ -20,16 +20,14 @@ public class InGameNote : MonoBehaviour
 
     }
 
-    public void setText(string key, LanguageManager langManager, bool hasDialogAfter, List<string> imageList, string dialogKey)
+    public void setImage(string spriteFileName, bool hasDialogAfter, List<string> imageList, string dialogKey)
     {
         this.hasDialogAfter = hasDialogAfter;
         this.imageList = imageList;
         this.dialogKey = dialogKey;
-        languageManager = langManager;
         GameObject player = GameObject.Find("Player");
         player.GetComponent<PlayerController>().movementEnabled = false;
-        string textToWrite = languageManager.getText(key);
-        this.text.GetComponent<TMP_Text>().text = textToWrite;
+        image.GetComponent<RawImage>().texture = Resources.Load("Document Images/" + spriteFileName) as Texture;
     }
 
     // Update is called once per frame
@@ -45,5 +43,7 @@ public class InGameNote : MonoBehaviour
                 dialogsUIOverlay.GetComponent<DialogController>().showDialog(dialogKey, imageList);
             }
         }
+
+
     }
 }

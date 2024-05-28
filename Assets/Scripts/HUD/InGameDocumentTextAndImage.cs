@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class InGameNote : MonoBehaviour
+public class InGameDocumentTextAndImage : MonoBehaviour
 {
-    public GameObject dialogsUIOverlay;
+
     public GameObject text;
-    public GameObject noteBackground;
+    public GameObject image;
+
+    public GameObject dialogsUIOverlay;
+
     private bool hasDialogAfter;
     private List<string> imageList;
     private string dialogKey;
@@ -20,7 +23,7 @@ public class InGameNote : MonoBehaviour
 
     }
 
-    public void setText(string key, LanguageManager langManager, bool hasDialogAfter, List<string> imageList, string dialogKey)
+    public void setTextAndImage(string textKey, string imageKey, LanguageManager langManager, bool hasDialogAfter, List<string> imageList, string dialogKey)
     {
         this.hasDialogAfter = hasDialogAfter;
         this.imageList = imageList;
@@ -28,8 +31,9 @@ public class InGameNote : MonoBehaviour
         languageManager = langManager;
         GameObject player = GameObject.Find("Player");
         player.GetComponent<PlayerController>().movementEnabled = false;
-        string textToWrite = languageManager.getText(key);
-        this.text.GetComponent<TMP_Text>().text = textToWrite;
+        string textToWrite = languageManager.getText(textKey);
+        this.text.GetComponent<TMPro.TMP_Text>().text = textToWrite;
+        image.GetComponent<RawImage>().texture = Resources.Load("Document Images/" + imageKey) as Texture;
     }
 
     // Update is called once per frame

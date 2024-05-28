@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
-public class InGameNote : MonoBehaviour
+public class InGameDocumentTextOnly : MonoBehaviour
 {
-    public GameObject dialogsUIOverlay;
+
     public GameObject text;
-    public GameObject noteBackground;
+    public GameObject documentBackground;
+
+    public GameObject dialogsUIOverlay;
+
     private bool hasDialogAfter;
     private List<string> imageList;
     private string dialogKey;
@@ -29,8 +31,9 @@ public class InGameNote : MonoBehaviour
         GameObject player = GameObject.Find("Player");
         player.GetComponent<PlayerController>().movementEnabled = false;
         string textToWrite = languageManager.getText(key);
-        this.text.GetComponent<TMP_Text>().text = textToWrite;
+        this.text.GetComponent<TMPro.TMP_Text>().text = textToWrite;
     }
+
 
     // Update is called once per frame
     void Update()
@@ -45,5 +48,8 @@ public class InGameNote : MonoBehaviour
                 dialogsUIOverlay.GetComponent<DialogController>().showDialog(dialogKey, imageList);
             }
         }
+
+
+
     }
 }
