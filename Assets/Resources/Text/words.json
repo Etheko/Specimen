@@ -264,8 +264,8 @@
     },
     {
       "key": "exitInventory",
-      "en": "Exit inventory:",
-      "es": "Salir del inventario:"
+      "en": "Close inventory:",
+      "es": "Cerrar inventario:"
     },
     {
       "key": "useItem",
@@ -276,6 +276,41 @@
       "key": "dropItem",
       "en": "Drop item:",
       "es": "Soltar objeto:"
+    },
+    {
+      "key": "moveInventory",
+      "en": "Move:",
+      "es": "Mover:"
+    },
+    {
+      "key": "controlsWalk",
+      "en": "Walk",
+      "es": "Caminar"
+    },
+    {
+      "key": "controlsRun",
+      "en": "Run",
+      "es": "Correr"
+    },
+    {
+      "key": "controlsInventory",
+      "en": "Open inventory",
+      "es": "Abrir inventario"
+    },
+    {
+      "key": "controlsPause",
+      "en": "Pause",
+      "es": "Pausar"
+    },
+    {
+      "key": "controlsInteract",
+      "en": "Interact",
+      "es": "Interactuar"
+    },
+    {
+      "key": "controlsSkipDialogues",
+      "en": "Skip Dialogues",
+      "es": "Saltar diálogos"
     }
   ]
 }

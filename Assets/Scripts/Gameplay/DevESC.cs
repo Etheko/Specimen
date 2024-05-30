@@ -12,6 +12,10 @@ public class DevESC : MonoBehaviour
 
     public GameObject optionsMenuWindow;
 
+    public GameObject controlsWindow;
+
+    public GameObject audioSettingsWindow;
+
     public GameObject player;
 
     public GameObject DialogsUIOverlay;
@@ -50,6 +54,8 @@ public class DevESC : MonoBehaviour
             {
                 AudioSystemManager.instance.disableFilter();
                 optionsMenuWindow.SetActive(false);
+                controlsWindow.SetActive(false);
+                audioSettingsWindow.SetActive(false);
                 gameMenuWindow.SetActive(true);
                 gameMenuObject.SetActive(false);
                 Time.timeScale = 1;
