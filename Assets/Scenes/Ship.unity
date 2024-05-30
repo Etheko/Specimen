@@ -234,11 +234,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 88636344774470314, guid: 367a145a48f9b594eb31f0c67491027b, type: 3}
   m_PrefabInstance: {fileID: 2666040189799456710}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1741643943 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1676467820524993404, guid: 4fb7d29651bf8214aa34de2f776ffd57, type: 3}
-  m_PrefabInstance: {fileID: 4913018509491629360}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1928360370 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2793319283093126085, guid: 4fb7d29651bf8214aa34de2f776ffd57, type: 3}
@@ -691,7 +686,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1925742454421554637, guid: 2be22ad1a12002d4c942a6de9ef6c8cd, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4883205885979051306, guid: 2be22ad1a12002d4c942a6de9ef6c8cd, type: 3}
       propertyPath: m_Pivot.x
@@ -872,7 +867,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4966230520304514877, guid: 84bc8757046525f4b859aa0c3ba91724, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5983402426811851906, guid: 84bc8757046525f4b859aa0c3ba91724, type: 3}
       propertyPath: player
@@ -952,10 +947,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1438274065}
-    - target: {fileID: 1977506289924034441, guid: 4fb7d29651bf8214aa34de2f776ffd57, type: 3}
-      propertyPath: audioSettingsWindow
-      value: 
-      objectReference: {fileID: 1741643943}
     - target: {fileID: 2702532302742239465, guid: 4fb7d29651bf8214aa34de2f776ffd57, type: 3}
       propertyPath: m_Name
       value: In Game UI

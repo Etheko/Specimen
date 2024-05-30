@@ -5,6 +5,7 @@ using UnityEngine;
 public class TextFlicker : MonoBehaviour
 {
     private TMP_Text textMeshPro;
+    private float timeBetweenCharacters = 0.1f;
     private string[] texts;
     private string[] textsEN =
     {
@@ -129,15 +130,23 @@ public class TextFlicker : MonoBehaviour
                     {
                         textMeshPro.text = textMeshPro.text.Remove(i);
                     }
-                    yield return new WaitForSeconds(0.1f);
+                    yield return new WaitForSeconds(timeBetweenCharacters);
 
+                }
+
+                if (currentString == stringsLength-1)
+                {
+                    this.timeBetweenCharacters = 0.05f;
+
+                    AudioSystemManager.instance.StopMusic();
+                    AudioSystemManager.instance.ForcePlayMusic("take");
                 }
 
                 // Type the characters of the following text
                 for (int i = 0; i < text.Length; i++)
                 {
                     textMeshPro.text = text.Substring(0, i) + "_";
-                    yield return new WaitForSeconds(0.1f);
+                    yield return new WaitForSeconds(timeBetweenCharacters);
                 }
 
                 currentString++;

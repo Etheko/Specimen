@@ -207,9 +207,23 @@ public class InventoryManager : MonoBehaviour
         return itemsDictionary[playerInventory.playerItems[selectedItem].id].id;
     }
 
+    public bool otherWindowOpened()
+    {
+        bool menuOpen = GameObject.Find("In Game UI").transform.Find("Main UI Overlay").gameObject.activeSelf;
+
+        for(int i = 0; i < dialogsUIOverlay.transform.childCount; i++)
+        {
+            if (dialogsUIOverlay.transform.GetChild(i).gameObject.activeSelf)
+            {
+                return true;
+            }
+        }
+        return menuOpen;
+    }
+
     public void showInventory()
     {
-        if (GameObject.Find("In Game UI").transform.Find("Main UI Overlay").gameObject.activeSelf)
+        if (otherWindowOpened())
         {
             return;
         }

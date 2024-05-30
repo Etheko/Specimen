@@ -311,6 +311,11 @@
       "key": "controlsSkipDialogues",
       "en": "Skip Dialogues",
       "es": "Saltar diálogos"
+    },
+    {
+      "key": "close",
+      "en": "Close",
+      "es": "Cerrar"
     }
   ]
 }

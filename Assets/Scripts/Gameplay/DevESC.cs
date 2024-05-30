@@ -66,17 +66,29 @@ public class DevESC : MonoBehaviour
             else
             {
                 isInventoryFrameActive = DialogsUIOverlay.transform.Find("Inventory Frame").gameObject.activeSelf;
-                if (!isInventoryFrameActive)
+
+                if (!dialogsOpen())
                 {
-                    AudioSystemManager.instance.enableFilter();
-                    Time.timeScale = 0;
-                    disablePlayerMovement();
-                    gameMenuObject.SetActive(true);
-                    gameMenuWindow.SetActive(true);
-                    optionsMenuWindow.SetActive(false);
-                } else
+                    if (!isInventoryFrameActive)
+                    {
+                        AudioSystemManager.instance.enableFilter();
+                        Time.timeScale = 0;
+                        disablePlayerMovement();
+                        gameMenuObject.SetActive(true);
+                        gameMenuWindow.SetActive(true);
+                        optionsMenuWindow.SetActive(false);
+                    }
+                    else
+                    {
+                        InventoryManager.instance.hideInventory();
+                    }
+                }
+                else
                 {
-                    InventoryManager.instance.hideInventory();
+                    if (isInventoryFrameActive)
+                    {
+                        InventoryManager.instance.hideInventory();
+                    }
                 }
 
             }
