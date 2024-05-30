@@ -20,8 +20,14 @@ public class BackToMainMenu : MonoBehaviour
         
     }
 
+    public void saveAll()
+    {
+        InventoryManager.instance.saveInventoryState();
+    }
+
     void Back()
     {
+        saveAll();
         //disable gameMenuWindow parent object
         AudioSystemManager.instance.PlayEffect("sfxAction");
         AudioSystemManager.instance.disableFilter();

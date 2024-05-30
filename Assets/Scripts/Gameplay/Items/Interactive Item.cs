@@ -8,6 +8,11 @@ public class InteractiveItem : MonoBehaviour
     public bool isInteractable = true;
     public bool isOnSurface = false;
 
+    public bool isCollectable = false;
+
+    [DrawIf("isCollectable", true)]
+    public string itemID;
+
     public GameObject DialogsUIOverlay;
 
     public GameObject player;
@@ -23,7 +28,8 @@ public class InteractiveItem : MonoBehaviour
         documentImageOnly,
         documentTextAndImage,
         note,
-        dialog
+        dialog,
+        none
     }
 
     public ItemType itemType;
@@ -73,19 +79,22 @@ public class InteractiveItem : MonoBehaviour
             switch (itemType)
             {
                 case ItemType.documentTextOnly:
-                    dialogController.showDocumentTextOnly(documentText, hasDialogueAfter, dialogImages, extraDialogKey);
+                    dialogController.showDocumentTextOnly(documentText, hasDialogueAfter, dialogImages, extraDialogKey, isCollectable, itemID);
                     break;
                 case ItemType.documentImageOnly:
-                    dialogController.showDocumentImageOnly(imageFileName, hasDialogueAfter, dialogImages, extraDialogKey);
+                    dialogController.showDocumentImageOnly(imageFileName, hasDialogueAfter, dialogImages, extraDialogKey, isCollectable, itemID);
                     break;
                 case ItemType.documentTextAndImage:
-                    dialogController.showDocumentTextAndImage(text, imageName, hasDialogueAfter, dialogImages, extraDialogKey);
+                    dialogController.showDocumentTextAndImage(text, imageName, hasDialogueAfter, dialogImages, extraDialogKey, isCollectable, itemID);
                     break;
                 case ItemType.note:
-                    dialogController.showNote(noteText, hasDialogueAfter, dialogImages, extraDialogKey);
+                    dialogController.showNote(noteText, hasDialogueAfter, dialogImages, extraDialogKey, isCollectable, itemID);
                     break;
                 case ItemType.dialog:
-                    dialogController.showDialog(dialogKey, dialogImages);
+                    dialogController.showDialog(dialogKey, dialogImages, isCollectable, itemID);
+                    break;
+                case ItemType.none:
+                    dialogController.nothing(itemID, isCollectable);
                     break;
             }
         }

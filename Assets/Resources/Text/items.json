@@ -1,0 +1,44 @@
+{
+  "items": [
+    {
+      "id": "testItem1",
+      "imageID": "testItemA",
+      "descriptionID": "descriptionTestItem1"
+    },
+    {
+      "id": "testItem2",
+      "imageID": "testItemB",
+      "descriptionID": "descriptionTestItem2"
+    },
+    {
+      "id": "testItem3",
+      "imageID": "testItemC",
+      "descriptionID": "descriptionTestItem3"
+    },
+    {
+      "id": "testItem4",
+      "imageID": "testItemD",
+      "descriptionID": "descriptionTestItem4"
+    },
+    {
+      "id": "testItem5",
+      "imageID": "testItemE",
+      "descriptionID": "descriptionTestItem5"
+    },
+    {
+      "id": "testItem6",
+      "imageID": "testItemF",
+      "descriptionID": "descriptionTestItem6"
+    },
+    {
+      "id": "testItem7",
+      "imageID": "testItemG",
+      "descriptionID": "descriptionTestItem7"
+    },
+    {
+      "id": "testItem8",
+      "imageID": "testItemH",
+      "descriptionID": "descriptionTestItem8"
+    }
+  ]
+}

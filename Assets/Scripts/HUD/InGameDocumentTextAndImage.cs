@@ -14,6 +14,8 @@ public class InGameDocumentTextAndImage : MonoBehaviour
     private bool hasDialogAfter;
     private List<string> imageList;
     private string dialogKey;
+    private bool isCollectable;
+    private string itemID;
 
     private LanguageManager languageManager;
 
@@ -23,8 +25,13 @@ public class InGameDocumentTextAndImage : MonoBehaviour
 
     }
 
-    public void setTextAndImage(string textKey, string imageKey, LanguageManager langManager, bool hasDialogAfter, List<string> imageList, string dialogKey)
+    public void setTextAndImage(string textKey, string imageKey, LanguageManager langManager, bool hasDialogAfter, List<string> imageList, string dialogKey, bool isCollectable, string itemID)
     {
+        this.isCollectable = isCollectable;
+        if (isCollectable)
+        {
+            this.itemID = itemID;
+        }
         this.hasDialogAfter = hasDialogAfter;
         this.imageList = imageList;
         this.dialogKey = dialogKey;
@@ -46,7 +53,14 @@ public class InGameDocumentTextAndImage : MonoBehaviour
             gameObject.SetActive(false);
             if (hasDialogAfter)
             {
-                dialogsUIOverlay.GetComponent<DialogController>().showDialog(dialogKey, imageList);
+                dialogsUIOverlay.GetComponent<DialogController>().showDialog(dialogKey, imageList, isCollectable, itemID);
+            }
+            else
+            {
+                if (isCollectable)
+                {
+                    InventoryManager.instance.addItem(itemID, true);
+                }
             }
         }
     }

@@ -8,6 +8,7 @@ public class TextCompletionEffectNoCorroutine : MonoBehaviour
     private TMP_Text textMeshPro;
     public string inputText; // Input text
 
+    private string textToWrite; // Text to write
     private float delay = 0.1f; // El retraso entre cada carácter
     private float nextCharacterTime = 0; // El tiempo en el que se debe mostrar el próximo carácter
     private int characterIndex = 0; // El índice del próximo carácter a mostrar
@@ -16,22 +17,24 @@ public class TextCompletionEffectNoCorroutine : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        textMeshPro = GetComponent<TMP_Text>();
+
         if (GetComponent<TranslatableText>() != null)
         {
             if (inputText == "")
-                inputText = GetComponent<TranslatableText>().getTextToWrite(); // Set the input text to the text of the TranslatableText component
+                textToWrite = GetComponent<TranslatableText>().getTextToWrite(textMeshPro.text); // Set the input text to the text of the TranslatableText component
             else
-                inputText = GetComponent<TranslatableText>().getTextToWrite(inputText); // Set the input text to the text of the TranslatableText component
+                textToWrite = GetComponent<TranslatableText>().getTextToWrite(inputText); // Set the input text to the text of the TranslatableText component
 
         }
         else
         {
 
-            textMeshPro = GetComponent<TMP_Text>();
 
             if (inputText == "")
-                inputText = textMeshPro.text; // Set the input text to the text of the textMeshPro component (if it is not set in the inspector)
-
+                textToWrite = textMeshPro.text; // Set the input text to the text of the textMeshPro component (if it is not set in the inspector)
+            else
+                textToWrite = inputText;
         }
 
     }
@@ -41,21 +44,35 @@ public class TextCompletionEffectNoCorroutine : MonoBehaviour
         textMeshPro.text = "";
     }
 
-    private void OnEnable()
+    public void initialize()
     {
         if (textMeshPro == null)
             textMeshPro = GetComponent<TextMeshProUGUI>();
 
-        if (inputText == null)
+        if (GetComponent<TranslatableText>() != null)
         {
-            inputText = textMeshPro.text;
+            if (inputText == "")
+                textToWrite = GetComponent<TranslatableText>().getTextToWrite(textMeshPro.text); // Set the input text to the text of the TranslatableText component
+            else
+                textToWrite = GetComponent<TranslatableText>().getTextToWrite(inputText); // Set the input text to the text of the TranslatableText component
 
         }
+        else
+        {
 
-        if (GetComponent<TranslatableText>() != null)
-            inputText = GetComponent<TranslatableText>().getTextToWrite();
+
+            if (inputText == "")
+                textToWrite = textMeshPro.text; // Set the input text to the text of the textMeshPro component (if it is not set in the inspector)
+            else
+                textToWrite = inputText;
+        }
 
         characterIndex = 0;
+    }
+
+    private void OnEnable()
+    {
+        initialize();
     }
 
     // Update is called once per frame
@@ -63,15 +80,19 @@ public class TextCompletionEffectNoCorroutine : MonoBehaviour
     {
         if (Time.realtimeSinceStartup > nextCharacterTime)
         {
-            if (characterIndex < inputText.Length)
+            if (inputText == null)
             {
-                textMeshPro.text = inputText.Substring(0, characterIndex) + "_";
+                initialize();
+            }
+            if (characterIndex < textToWrite.Length)
+            {
+                textMeshPro.text = textToWrite.Substring(0, characterIndex) + "_";
                 characterIndex++;
                 nextCharacterTime = Time.realtimeSinceStartup + delay;
             }
             else
             {
-                textMeshPro.text = inputText;
+                textMeshPro.text = textToWrite;
             }
         }
     }

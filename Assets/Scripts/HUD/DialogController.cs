@@ -30,34 +30,46 @@ public class DialogController : MonoBehaviour
 
     }
 
-    public void showDialog(string key, List<string> images)
+
+    public void showDialog(string key, List<string> images, bool isCollectable, string itemID)
     {
         dialogFrame.SetActive(true);
-        dialogText.GetComponent<InGameDialogs>().startNewDialog(key, languageManager, images);
+        dialogText.GetComponent<InGameDialogs>().startNewDialog(key, languageManager, images, isCollectable, itemID);
     }
 
-    public void showDocumentTextOnly(string text, bool hasDialogAfter, List<string> imageList, string dialogKey)
+    public void showObtainedItemDialog(string itemID, string imageID)
+    {
+        dialogFrame.SetActive(true);
+        dialogText.GetComponent<InGameDialogs>().startNewItemObtainedDialog(languageManager, itemID, imageID);
+    }
+
+    public void showDocumentTextOnly(string text, bool hasDialogAfter, List<string> imageList, string dialogKey, bool isCollectable, string itemID)
     {
         documentTextOnlyFrame.SetActive(true);
-        documentTextOnlyFrame.GetComponent<InGameDocumentTextOnly>().setText(text, languageManager, hasDialogAfter, imageList, dialogKey);
+        documentTextOnlyFrame.GetComponent<InGameDocumentTextOnly>().setText(text, languageManager, hasDialogAfter, imageList, dialogKey, isCollectable, itemID);
     }
 
-    public void showDocumentImageOnly(string imageFileName, bool hasDialogAfter, List<string> imageList, string dialogKey)
+    public void showDocumentImageOnly(string imageFileName, bool hasDialogAfter, List<string> imageList, string dialogKey, bool isCollectable, string itemID)
     {
         documentImageOnlyFrame.SetActive(true);
-        documentImageOnlyFrame.GetComponent<InGameDocumentImageOnly>().setImage(imageFileName, hasDialogAfter, imageList, dialogKey);
+        documentImageOnlyFrame.GetComponent<InGameDocumentImageOnly>().setImage(imageFileName, hasDialogAfter, imageList, dialogKey, isCollectable, itemID);
     }
 
-    public void showDocumentTextAndImage(string textKey, string imageFileName, bool hasDialogAfter, List<string> imageList, string dialogKey)
+    public void showDocumentTextAndImage(string textKey, string imageFileName, bool hasDialogAfter, List<string> imageList, string dialogKey, bool isCollectable, string itemID)
     {
         documentTextAndImageFrame.SetActive(true);
-        documentTextAndImageFrame.GetComponent<InGameDocumentTextAndImage>().setTextAndImage(textKey, imageFileName, languageManager, hasDialogAfter, imageList, dialogKey);
+        documentTextAndImageFrame.GetComponent<InGameDocumentTextAndImage>().setTextAndImage(textKey, imageFileName, languageManager, hasDialogAfter, imageList, dialogKey, isCollectable, itemID);
     }
 
-    public void showNote(string text, bool hasDialogAfter, List<string> imageList, string dialogKey)
+    public void showNote(string text, bool hasDialogAfter, List<string> imageList, string dialogKey, bool isCollectable, string itemID)
     {
         noteFrame.SetActive(true);
-        noteFrame.GetComponent<InGameNote>().setText(text, languageManager, hasDialogAfter, imageList, dialogKey); 
+        noteFrame.GetComponent<InGameNote>().setText(text, languageManager, hasDialogAfter, imageList, dialogKey, isCollectable, itemID); 
+    }
+
+    public void nothing(string itemID, bool isCollectable)
+    {
+
     }
 
 

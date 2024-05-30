@@ -78,6 +78,16 @@
       "es": "Efectos:"
     },
     {
+      "key": "inventory",
+      "en": "Inventory",
+      "es": "Inventario"
+    },
+    {
+      "key": "inventoryControls",
+      "en": "Inventory controls",
+      "es": "Controles del inventario"
+    },
+    {
       "key": "en",
       "en": "English",
       "es": "Inglés"
@@ -146,6 +156,126 @@
       "key": "nTestNoteShip",
       "en": "<color=red>Test?</color>\n<i>test</i>",
       "es": "<color=blue>Prueba?</color>\n<i>prueba</i>"
+    },
+    {
+      "key": "testItem1",
+      "en": "Test item 1",
+      "es": "Prueba objeto 1"
+    },
+    {
+      "key": "testItem2",
+      "en": "Test item 2",
+      "es": "Prueba objeto 2"
+    },
+    {
+      "key": "testItem3",
+      "en": "Test item 3",
+      "es": "Prueba objeto 3"
+    },
+    {
+      "key": "testItem4",
+      "en": "Test item 4",
+      "es": "Prueba objeto 4"
+    },
+    {
+      "key": "testItem5",
+      "en": "Test item 5",
+      "es": "Prueba objeto 5"
+    },
+    {
+      "key": "testItem6",
+      "en": "Test item 6",
+      "es": "Prueba objeto 6"
+    },
+    {
+      "key": "testItem7",
+      "en": "Test item 7",
+      "es": "Prueba objeto 7"
+    },
+    {
+      "key": "testItem8",
+      "en": "Test item 8",
+      "es": "Prueba objeto 8"
+    },
+    {
+      "key": "descriptionTestItem1",
+      "en": "This is a test item 1",
+      "es": "Este es un objeto de prueba 1"
+    },
+    {
+      "key": "descriptionTestItem2",
+      "en": "This is a test item 2",
+      "es": "Este es un objeto de prueba 2"
+    },
+    {
+      "key": "descriptionTestItem3",
+      "en": "This is a test item 3",
+      "es": "Este es un objeto de prueba 3"
+    },
+    {
+      "key": "descriptionTestItem4",
+      "en": "This is a test item 4",
+      "es": "Este es un objeto de prueba 4"
+    },
+    {
+      "key": "descriptionTestItem5",
+      "en": "This is a test item 5",
+      "es": "Este es un objeto de prueba 5"
+    },
+    {
+      "key": "descriptionTestItem6",
+      "en": "This is a test item 6",
+      "es": "Este es un objeto de prueba 6"
+    },
+    {
+      "key": "descriptionTestItem7",
+      "en": "This is a test item 7",
+      "es": "Este es un objeto de prueba 7"
+    },
+    {
+      "key": "descriptionTestItem8",
+      "en": "This is a test item 8",
+      "es": "Este es un objeto de prueba 8"
+    },
+    {
+      "key": "obtainedItemText",
+      "en": "You have obtained a new item: ",
+      "es": "Has obtenido un nuevo objeto: "
+    },
+    {
+      "key": "inventoryNothingText",
+      "en": "Nothing",
+      "es": "Nada"
+    },
+    {
+      "key": "inventoryNothingDescription",
+      "en": "Just pure air...",
+      "es": "Aire transparente..."
+    },
+    {
+      "key": "alreadyHaveItemText",
+      "en": "I already have this item...",
+      "es": "Parece que ya tenía esto..."
+    },
+    {
+      "key": "inventoryFullText",
+      "en": "I can't take more stuff with me...",
+      "es": "No puedo llevar más cosas encima..."
+    },
+    {
+      "key": "exitInventory",
+      "en": "Exit inventory:",
+      "es": "Salir del inventario:"
+    },
+    {
+      "key": "useItem",
+      "en": "Use item:",
+      "es": "Usar objeto:"
+    },
+    {
+      "key": "dropItem",
+      "en": "Drop item:",
+      "es": "Soltar objeto:"
     }
   ]
 }

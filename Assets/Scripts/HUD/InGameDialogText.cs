@@ -28,6 +28,10 @@ public class InGameDialogs : MonoBehaviour
 
     private List<string> images;
 
+    private bool isCollectable;
+
+    private string itemID;
+
     private void StartDialog()
     {
         inputText = dialogues[0];
@@ -38,10 +42,25 @@ public class InGameDialogs : MonoBehaviour
         animateTextCoroutine = StartCoroutine(AnimateText());
     }
 
-
-
-    public void startNewDialog(string dialogKey, LanguageManager langManager, List<string> images)
+    private void StartNewItemDialog()
     {
+        inputText = dialogues[0];
+
+        if (currentDialogue < images.Count)
+            imageObject.GetComponent<RawImage>().texture = Resources.Load("Item Sprites/" + images[currentDialogue]) as Texture;
+
+        animateTextCoroutine = StartCoroutine(AnimateText());
+    }
+
+
+
+    public void startNewDialog(string dialogKey, LanguageManager langManager, List<string> images, bool isCollectable, string itemID)
+    {
+        this.isCollectable = isCollectable;
+        if (isCollectable)
+        {
+            this.itemID = itemID;
+        }
         this.images = images;
         GameObject player = GameObject.Find("Player");
         player.GetComponent<PlayerController>().movementEnabled = !inmovilizePlayer;
@@ -51,6 +70,25 @@ public class InGameDialogs : MonoBehaviour
         dialogDone = false;
         dialogues = languageManager.getDialogs(dialogKey);
         StartDialog();
+    }
+
+    public void startNewItemObtainedDialog(LanguageManager langManager, string itemID, string imageID)
+    {
+        this.itemID = itemID;
+        this.isCollectable = false;
+        this.images = new List<string>();
+        this.images.Add(imageID);
+        GameObject player = GameObject.Find("Player");
+        player.GetComponent<PlayerController>().movementEnabled = !inmovilizePlayer;
+        languageManager = langManager;
+        textMeshPro = GetComponent<TMP_Text>();
+        currentDialogue = 0;
+        dialogDone = false;
+        string obtainedItemString = languageManager.getText("obtainedItemText");
+        string itemName = languageManager.getText(itemID);
+        itemName = "<color=yellow>" + itemName + "</color>";
+        dialogues = new string[] { obtainedItemString + itemName };
+        StartNewItemDialog();
     }
 
     public bool nextDialog()
@@ -131,9 +169,14 @@ public class InGameDialogs : MonoBehaviour
 
                     gameObject.transform.parent.gameObject.SetActive(false);
 
-                }
-            }
+                    if (isCollectable)
+                    {
+                        InventoryManager.instance.addItem(itemID, true);
 
+                    }
+                }
+
+            }
         }
     }
 }

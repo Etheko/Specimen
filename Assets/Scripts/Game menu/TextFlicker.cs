@@ -99,6 +99,23 @@ public class TextFlicker : MonoBehaviour
     // Coroutine to change the text every 5 seconds
     public IEnumerator ChangeText()
     {
+        if (texts == null)
+        {
+            if (PlayerPrefs.GetString("selectedLanguage") == "en")
+            {
+                texts = textsEN;
+            }
+            else if (PlayerPrefs.GetString("selectedLanguage") == "es")
+            {
+                texts = textsES;
+            }
+        }
+
+        if (textMeshPro == null)
+        {
+            textMeshPro = GetComponent<TMP_Text>();
+        }
+
         var stringsLength = texts.Length;
         var currentString = 0;
         while (true)
@@ -108,8 +125,12 @@ public class TextFlicker : MonoBehaviour
                 // Delete each character of the previous text
                 for (int i = textMeshPro.text.Length - 1; i >= 0; i--)
                 {
-                    textMeshPro.text = textMeshPro.text.Remove(i);
+                    if (i != textMeshPro.text.Length)
+                    {
+                        textMeshPro.text = textMeshPro.text.Remove(i);
+                    }
                     yield return new WaitForSeconds(0.1f);
+
                 }
 
                 // Type the characters of the following text

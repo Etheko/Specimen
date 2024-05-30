@@ -12,6 +12,8 @@ public class InGameDocumentImageOnly : MonoBehaviour
     private bool hasDialogAfter;
     private List<string> imageList;
     private string dialogKey;
+    private bool isCollectable;
+    private string itemID;
 
 
     // Start is called before the first frame update
@@ -20,8 +22,13 @@ public class InGameDocumentImageOnly : MonoBehaviour
 
     }
 
-    public void setImage(string spriteFileName, bool hasDialogAfter, List<string> imageList, string dialogKey)
+    public void setImage(string spriteFileName, bool hasDialogAfter, List<string> imageList, string dialogKey, bool isCollectable, string itemID)
     {
+        this.isCollectable = isCollectable;
+        if (isCollectable)
+        {
+            this.itemID = itemID;
+        }
         this.hasDialogAfter = hasDialogAfter;
         this.imageList = imageList;
         this.dialogKey = dialogKey;
@@ -40,7 +47,14 @@ public class InGameDocumentImageOnly : MonoBehaviour
             gameObject.SetActive(false);
             if (hasDialogAfter)
             {
-                dialogsUIOverlay.GetComponent<DialogController>().showDialog(dialogKey, imageList);
+                dialogsUIOverlay.GetComponent<DialogController>().showDialog(dialogKey, imageList, isCollectable, itemID);
+            }
+            else
+            {
+                if (isCollectable)
+                {
+                    InventoryManager.instance.addItem(itemID, true);
+                }
             }
         }
 

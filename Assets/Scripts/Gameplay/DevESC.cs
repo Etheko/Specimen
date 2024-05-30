@@ -16,6 +16,8 @@ public class DevESC : MonoBehaviour
 
     public GameObject DialogsUIOverlay;
 
+    private bool isInventoryFrameActive;
+
     public void disablePlayerMovement()
     {
         player.GetComponent<PlayerController>().movementEnabled = false;
@@ -34,7 +36,8 @@ public class DevESC : MonoBehaviour
         bool documentImageOnlyFrame = DialogsUIOverlay.transform.Find("Document Image Only Frame").gameObject.activeSelf;
         bool dialogFrame = DialogsUIOverlay.transform.Find("Dialog Frame").gameObject.activeSelf;
         bool noteFrame = DialogsUIOverlay.transform.Find("Note Frame").gameObject.activeSelf;
-        return dialogFrame || noteFrame || documentTextOnlyFrame || documentImageOnlyFrame || documentTextAndImageFrame;
+        isInventoryFrameActive = DialogsUIOverlay.transform.Find("Inventory Frame").gameObject.activeSelf;
+        return dialogFrame || noteFrame || documentTextOnlyFrame || documentImageOnlyFrame || documentTextAndImageFrame || isInventoryFrameActive;
     }
 
     // Update is called once per frame
@@ -56,12 +59,20 @@ public class DevESC : MonoBehaviour
             }
             else
             {
-                AudioSystemManager.instance.enableFilter();
-                Time.timeScale = 0;
-                disablePlayerMovement();
-                gameMenuObject.SetActive(true);
-                gameMenuWindow.SetActive(true);
-                optionsMenuWindow.SetActive(false);
+                isInventoryFrameActive = DialogsUIOverlay.transform.Find("Inventory Frame").gameObject.activeSelf;
+                if (!isInventoryFrameActive)
+                {
+                    AudioSystemManager.instance.enableFilter();
+                    Time.timeScale = 0;
+                    disablePlayerMovement();
+                    gameMenuObject.SetActive(true);
+                    gameMenuWindow.SetActive(true);
+                    optionsMenuWindow.SetActive(false);
+                } else
+                {
+                    InventoryManager.instance.hideInventory();
+                }
+
             }
         }
 

@@ -26,8 +26,10 @@ public class LanguageManager : MonoBehaviour
 
     public void loadTexts()
     {
-
-        languageSettings = JsonUtility.FromJson<LanguageSettingsModel>(configJSONFile.text);
+        if (configJSONFile == null)
+        {
+            configJSONFile = Resources.Load<TextAsset>("Text/langSettings");
+        }
 
         if (!PlayerPrefs.HasKey("selectedLanguage"))
         {
@@ -36,6 +38,10 @@ public class LanguageManager : MonoBehaviour
         language = PlayerPrefs.GetString("selectedLanguage");
 
         // load all the texts from the JSON file, depending on the language
+        if (stringsJSONFile == null)
+        {
+            stringsJSONFile = Resources.Load<TextAsset>("Text/words");
+        }
         var languageDictionary = JsonUtility.FromJson<LanguageDictionary>(stringsJSONFile.text);
         texts = new Dictionary<string, string>();
         foreach (var item in languageDictionary.textStrings)
@@ -65,7 +71,7 @@ public class LanguageManager : MonoBehaviour
 
     public string getText(string key)
     {
-        if(texts == null)
+        if (texts == null)
         {
             loadTexts();
         }
