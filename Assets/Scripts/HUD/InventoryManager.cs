@@ -52,8 +52,6 @@ public class InventoryManager : MonoBehaviour, IConfirmAction
     // Start is called before the first frame update
     void Start()
     {
-        confirmationFrame = GameObject.Find("Dialogs UI Overlay").transform.Find("Confirmation Frame").GetComponent<ConfirmationFrame>();
-
         assignObjects();
         loadData();
         itemsJSONFile = Resources.Load<TextAsset>("Text/items");
@@ -73,6 +71,7 @@ public class InventoryManager : MonoBehaviour, IConfirmAction
         dialogsUIOverlay = GameObject.Find("Dialogs UI Overlay");
         if (dialogsUIOverlay != null)
         {
+            confirmationFrame = dialogsUIOverlay.transform.Find("Confirmation Frame").GetComponent<ConfirmationFrame>();
             inventoryFrame = dialogsUIOverlay.transform.Find("Inventory Frame").gameObject;
             inventoryGrid = inventoryFrame.transform.Find("Inventory Grid").gameObject;
             inventorySelector = inventoryFrame.transform.Find("Inventory Selector").gameObject;
@@ -307,35 +306,30 @@ public class InventoryManager : MonoBehaviour, IConfirmAction
 
     // Update is called once per frame
     void Update()
-    {        
-        if (confirmationFrame == null)
-        {
-            return;
-        } else if (confirmationFrame.gameObject.activeSelf)
-        {
-            return;
-        }
-
+    {
         if ((Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)) && dialogsUIOverlay != null)
         {
-            if (inventoryFrame.activeSelf)
+            if (!confirmationFrame.gameObject.activeSelf && inventoryFrame.activeSelf)
             {
                 selectLeft();
             }
         }
         else if ((Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) && dialogsUIOverlay != null && inventoryFrame.activeSelf)
         {
-            selectRight();
+            if (!confirmationFrame.gameObject.activeSelf)
+                selectRight();
         }
 
         if (Input.GetKeyDown(KeyCode.E) && dialogsUIOverlay != null && inventoryFrame.activeSelf && selectedItem < playerInventory.playerItems.Count)
         {
-            useItem();
+            if (!confirmationFrame.gameObject.activeSelf)
+                useItem();
         }
 
         if (Input.GetKeyDown(KeyCode.X) && dialogsUIOverlay != null && inventoryFrame.activeSelf && selectedItem < playerInventory.playerItems.Count)
         {
-            confirmationFrame.Show(this, "confirmationDeleteText");
+            if (!confirmationFrame.gameObject.activeSelf)
+                confirmationFrame.Show(this, "confirmationDeleteText");
         }
 
         if (Input.GetKeyDown(KeyCode.B))
@@ -347,15 +341,18 @@ public class InventoryManager : MonoBehaviour, IConfirmAction
             }
             if (inventoryFrame.activeSelf)
             {
-                hideInventory();
+                if (!confirmationFrame.gameObject.activeSelf)
+                    hideInventory();
             }
             else
             {
-                GameObject player = GameObject.Find("Player");
-                player.GetComponent<PlayerController>().movementEnabled = false;
-                showInventory();
+                if (!confirmationFrame.gameObject.activeSelf)
+                {
+                    GameObject player = GameObject.Find("Player");
+                    player.GetComponent<PlayerController>().movementEnabled = false;
+                    showInventory();
+                }
             }
         }
-
     }
 }
