@@ -316,6 +316,21 @@
       "key": "close",
       "en": "Close",
       "es": "Cerrar"
+    },
+    {
+      "key": "cancel",
+      "en": "Cancel",
+      "es": "Cancelar"
+    },
+    {
+      "key": "confirm",
+      "en": "OK",
+      "es": "Confirmar"
+    },
+    {
+      "key": "confirmationDeleteText",
+      "en": "Do you really want to get rid of this?",
+      "es": "¿Quieres deshacerte de este objeto?"
     }
   ]
 }

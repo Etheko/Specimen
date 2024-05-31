@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ActionTestItem1 : ScriptableObject, InteractiveItemBase
+public class ActionTestItem1 : ScriptableObject, IInteractiveItemBase
 {
 
     public bool UseItem()

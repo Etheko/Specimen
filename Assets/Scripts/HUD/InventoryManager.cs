@@ -6,7 +6,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InventoryManager : MonoBehaviour
+public class InventoryManager : MonoBehaviour, IConfirmAction
 {
     const int INVENTORY_SIZE = 8;
 
@@ -23,9 +23,9 @@ public class InventoryManager : MonoBehaviour
 
     private TextAsset itemsJSONFile;
     private Dictionary<string, Item> itemsDictionary = new Dictionary<string, Item>();
-    private Dictionary<string, InteractiveItemBase> actionInstances = new Dictionary<string, InteractiveItemBase>();
+    private Dictionary<string, IInteractiveItemBase> actionInstances = new Dictionary<string, IInteractiveItemBase>();
 
-
+    private ConfirmationFrame confirmationFrame;
 
     private List<string> items;
 
@@ -52,6 +52,8 @@ public class InventoryManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        confirmationFrame = GameObject.Find("Dialogs UI Overlay").transform.Find("Confirmation Frame").GetComponent<ConfirmationFrame>();
+
         assignObjects();
         loadData();
         itemsJSONFile = Resources.Load<TextAsset>("Text/items");
@@ -90,7 +92,7 @@ public class InventoryManager : MonoBehaviour
             System.Type type = System.Type.GetType(item.action);
             if (type != null)
             {
-                InteractiveItemBase action = (InteractiveItemBase)ScriptableObject.CreateInstance(type.ToString());
+                IInteractiveItemBase action = (IInteractiveItemBase)ScriptableObject.CreateInstance(type.ToString());
                 actionInstances.Add(item.id, action);
             }
         }
@@ -134,6 +136,10 @@ public class InventoryManager : MonoBehaviour
     {
         selectedItem = itemIndex;
         GameObject selector = inventorySelector.transform.GetChild(selectedItem).gameObject;
+        for (int i = 0; i < INVENTORY_SIZE; i++)
+        {
+            inventorySelector.transform.GetChild(i).gameObject.SetActive(false);
+        }
         selector.SetActive(true);
         // if there is an item in the selected slot, display its details, otherwise clear the details
         if (selectedItem < playerInventory.playerItems.Count)
@@ -185,6 +191,14 @@ public class InventoryManager : MonoBehaviour
         {
             playerInventory.playerItems.RemoveAt(selectedItem);
             loadItems();
+            if (selectedItem > 0)
+            {
+                selectItem(selectedItem - 1);
+            }
+            else
+            {
+                selectItem(0);
+            }
         }
     }
 
@@ -218,7 +232,7 @@ public class InventoryManager : MonoBehaviour
         string itemId = playerInventory.playerItems[selectedItem].id;
         if (actionInstances.ContainsKey(itemId))
         {
-            InteractiveItemBase action = actionInstances[itemId];
+            IInteractiveItemBase action = actionInstances[itemId];
             if (action.UseItem())
             {
                 hideInventory();
@@ -280,9 +294,28 @@ public class InventoryManager : MonoBehaviour
         player.GetComponent<PlayerController>().movementEnabled = true;
     }
 
+    public void Execute() // This method comes from the IConfirmAction interface
+    {
+        removeItem();
+        confirmationFrame.gameObject.SetActive(false);
+    }
+
+    public void Cancel() // This method comes from the IConfirmAction interface
+    {
+        confirmationFrame.gameObject.SetActive(false);
+    }
+
     // Update is called once per frame
     void Update()
-    {
+    {        
+        if (confirmationFrame == null)
+        {
+            return;
+        } else if (confirmationFrame.gameObject.activeSelf)
+        {
+            return;
+        }
+
         if ((Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)) && dialogsUIOverlay != null)
         {
             if (inventoryFrame.activeSelf)
@@ -298,6 +331,11 @@ public class InventoryManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && dialogsUIOverlay != null && inventoryFrame.activeSelf && selectedItem < playerInventory.playerItems.Count)
         {
             useItem();
+        }
+
+        if (Input.GetKeyDown(KeyCode.X) && dialogsUIOverlay != null && inventoryFrame.activeSelf && selectedItem < playerInventory.playerItems.Count)
+        {
+            confirmationFrame.Show(this, "confirmationDeleteText");
         }
 
         if (Input.GetKeyDown(KeyCode.B))

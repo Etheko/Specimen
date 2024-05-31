@@ -22,6 +22,8 @@ public class DevESC : MonoBehaviour
 
     private bool isInventoryFrameActive;
 
+    private bool isConfirmationDialogActive;
+
     public void disablePlayerMovement()
     {
         player.GetComponent<PlayerController>().movementEnabled = false;
@@ -40,8 +42,9 @@ public class DevESC : MonoBehaviour
         bool documentImageOnlyFrame = DialogsUIOverlay.transform.Find("Document Image Only Frame").gameObject.activeSelf;
         bool dialogFrame = DialogsUIOverlay.transform.Find("Dialog Frame").gameObject.activeSelf;
         bool noteFrame = DialogsUIOverlay.transform.Find("Note Frame").gameObject.activeSelf;
+        bool confirmationFrame = DialogsUIOverlay.transform.Find("Confirmation Frame").gameObject.activeSelf;
         isInventoryFrameActive = DialogsUIOverlay.transform.Find("Inventory Frame").gameObject.activeSelf;
-        return dialogFrame || noteFrame || documentTextOnlyFrame || documentImageOnlyFrame || documentTextAndImageFrame || isInventoryFrameActive;
+        return dialogFrame || noteFrame || documentTextOnlyFrame || documentImageOnlyFrame || documentTextAndImageFrame || isInventoryFrameActive || confirmationFrame;
     }
 
     // Update is called once per frame
@@ -66,6 +69,7 @@ public class DevESC : MonoBehaviour
             else
             {
                 isInventoryFrameActive = DialogsUIOverlay.transform.Find("Inventory Frame").gameObject.activeSelf;
+                isConfirmationDialogActive = DialogsUIOverlay.transform.Find("Confirmation Frame").gameObject.activeSelf;
 
                 if (!dialogsOpen())
                 {
@@ -85,10 +89,21 @@ public class DevESC : MonoBehaviour
                 }
                 else
                 {
-                    if (isInventoryFrameActive)
+                    if (isConfirmationDialogActive)
+                    {
+                        DialogsUIOverlay.transform.Find("Confirmation Frame").gameObject.SetActive(false);
+
+                        // if there are no more dialogs open, enable player movement
+                        if (!dialogsOpen())
+                        {
+                            enablePlayerMovement();
+                        }
+                    }
+                    else if (isInventoryFrameActive)
                     {
                         InventoryManager.instance.hideInventory();
                     }
+                    
                 }
 
             }

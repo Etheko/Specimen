@@ -37,7 +37,7 @@ public class Item
     public string id;
     public string imageID;
     public string descriptionID;
-    public string action;
+    public string action; //IInteractiveItemBase interface
 }
 
 [System.Serializable]
