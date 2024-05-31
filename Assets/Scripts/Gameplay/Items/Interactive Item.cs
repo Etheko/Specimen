@@ -29,7 +29,7 @@ public class InteractiveItem : MonoBehaviour
         documentTextAndImage,
         note,
         dialog,
-        none
+        action
     }
 
     public ItemType itemType;
@@ -57,6 +57,10 @@ public class InteractiveItem : MonoBehaviour
     [DrawIf("hasDialogueAfter", true)]
     [Tooltip("Key of the dialog to show after the document is closed.")]
     public string extraDialogKey;
+
+    [DrawIf("itemType", ItemType.action)]
+    [Tooltip("Name of the script that will be used for this item's action when used.")]
+    public string itemScriptName;
 
     [Header("Dialog Images")]
     [Tooltip("Images to show in the dialog. Their file names go here, and must be in the order in which they will appear.")]
@@ -93,8 +97,17 @@ public class InteractiveItem : MonoBehaviour
                 case ItemType.dialog:
                     dialogController.showDialog(dialogKey, dialogImages, isCollectable, itemID);
                     break;
-                case ItemType.none:
-                    dialogController.nothing(itemID, isCollectable);
+                case ItemType.action:
+                    System.Type type = System.Type.GetType(itemScriptName);
+                    if (type != null)
+                    {
+                        IInteractiveItemBase action = (IInteractiveItemBase)ScriptableObject.CreateInstance(type.ToString());
+                        action.UseItem();
+                    }
+                    else
+                    {
+                        Debug.LogError("Script not found: " + itemScriptName);
+                    }
                     break;
             }
         }
