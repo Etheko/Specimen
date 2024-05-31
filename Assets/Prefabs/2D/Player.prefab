@@ -102,6 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 194d168ced7b6fc4b8a3c86b0718b896, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementEnabled: 1
   speed: 3.5
   solidObjectsLayer:
     serializedVersion: 2
@@ -116,6 +117,8 @@ MonoBehaviour:
   rightXOffset: 1
   rightYOffset: -1.5
   startingPosition: {fileID: 11400000, guid: 3d24d698454a4ef4fb8050b7902df174, type: 2}
+  hasSpawnPoint: 1
+  resetSpawnPoint: 1
 --- !u!95 &2663590964577573725
 Animator:
   serializedVersion: 5

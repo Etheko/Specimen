@@ -3,42 +3,50 @@
     {
       "id": "testItem1",
       "imageID": "testItemA",
-      "descriptionID": "descriptionTestItem1"
+      "descriptionID": "descriptionTestItem1",
+      "action":"ActionTestItem1"
     },
     {
       "id": "testItem2",
       "imageID": "testItemB",
-      "descriptionID": "descriptionTestItem2"
+      "descriptionID": "descriptionTestItem2",
+      "action":"ActionTestItem2"
     },
     {
       "id": "testItem3",
       "imageID": "testItemC",
-      "descriptionID": "descriptionTestItem3"
+      "descriptionID": "descriptionTestItem3",
+      "action":"ActionTestItem3"
     },
     {
       "id": "testItem4",
       "imageID": "testItemD",
-      "descriptionID": "descriptionTestItem4"
+      "descriptionID": "descriptionTestItem4",
+      "action":"ActionTestItem4"
     },
     {
       "id": "testItem5",
       "imageID": "testItemE",
-      "descriptionID": "descriptionTestItem5"
+      "descriptionID": "descriptionTestItem5",
+      "action":"ActionTestItem5"
     },
     {
       "id": "testItem6",
       "imageID": "testItemF",
-      "descriptionID": "descriptionTestItem6"
+      "descriptionID": "descriptionTestItem6",
+      "action":"ActionTestItem6"
     },
     {
       "id": "testItem7",
       "imageID": "testItemG",
-      "descriptionID": "descriptionTestItem7"
+      "descriptionID": "descriptionTestItem7",
+      "action":"ActionTestItem7"
     },
     {
       "id": "testItem8",
       "imageID": "testItemH",
-      "descriptionID": "descriptionTestItem8"
+      "descriptionID": "descriptionTestItem8",
+      "action":"ActionTestItem8"
     }
   ]
 }

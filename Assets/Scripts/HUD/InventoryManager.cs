@@ -23,6 +23,8 @@ public class InventoryManager : MonoBehaviour
 
     private TextAsset itemsJSONFile;
     private Dictionary<string, Item> itemsDictionary = new Dictionary<string, Item>();
+    private Dictionary<string, InteractiveItemBase> actionInstances = new Dictionary<string, InteractiveItemBase>();
+
 
 
     private List<string> items;
@@ -83,8 +85,17 @@ public class InventoryManager : MonoBehaviour
         foreach (var item in itemsList.items)
         {
             this.itemsDictionary.Add(item.id, item);
+
+            // Create an instance of the action class
+            System.Type type = System.Type.GetType(item.action);
+            if (type != null)
+            {
+                InteractiveItemBase action = (InteractiveItemBase)ScriptableObject.CreateInstance(type.ToString());
+                actionInstances.Add(item.id, action);
+            }
         }
     }
+
 
     public void saveInventoryState()
     {
@@ -202,16 +213,30 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    public string useItem() // Returns the ID of the selected item so it can be used in the game
+    public void useItem()
     {
-        return itemsDictionary[playerInventory.playerItems[selectedItem].id].id;
+        string itemId = playerInventory.playerItems[selectedItem].id;
+        if (actionInstances.ContainsKey(itemId))
+        {
+            InteractiveItemBase action = actionInstances[itemId];
+            if (action.UseItem())
+            {
+                hideInventory();
+            }
+        }
+        else
+        {
+            Debug.LogError("This item has no action script: " + itemId);
+        }
+
     }
+
 
     public bool otherWindowOpened()
     {
         bool menuOpen = GameObject.Find("In Game UI").transform.Find("Main UI Overlay").gameObject.activeSelf;
 
-        for(int i = 0; i < dialogsUIOverlay.transform.childCount; i++)
+        for (int i = 0; i < dialogsUIOverlay.transform.childCount; i++)
         {
             if (dialogsUIOverlay.transform.GetChild(i).gameObject.activeSelf)
             {
@@ -265,12 +290,14 @@ public class InventoryManager : MonoBehaviour
                 selectLeft();
             }
         }
-        else if ((Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) && dialogsUIOverlay != null)
+        else if ((Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) && dialogsUIOverlay != null && inventoryFrame.activeSelf)
         {
-            if (inventoryFrame.activeSelf)
-            {
-                selectRight();
-            }
+            selectRight();
+        }
+
+        if (Input.GetKeyDown(KeyCode.E) && dialogsUIOverlay != null && inventoryFrame.activeSelf && selectedItem < playerInventory.playerItems.Count)
+        {
+            useItem();
         }
 
         if (Input.GetKeyDown(KeyCode.B))

@@ -37,6 +37,7 @@ public class Item
     public string id;
     public string imageID;
     public string descriptionID;
+    public string action;
 }
 
 [System.Serializable]
